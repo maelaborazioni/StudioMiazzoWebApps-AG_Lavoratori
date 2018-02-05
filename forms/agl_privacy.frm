@@ -1,0 +1,15 @@
+dataSource:"db:/ma_hr/lavoratori_privacy",
+extendsID:"E1B6951E-8C22-4464-9B19-707548D2B2DE",
+items:[
+{
+height:480,
+partType:5,
+typeid:19,
+uuid:"DD2CBB14-B32C-4C1D-B2EA-3223DED7CF54"
+}
+],
+name:"agl_privacy",
+size:"400,480",
+styleName:"leaf_style",
+typeid:3,
+uuid:"09456605-7002-4D64-9769-B145F61592E3"

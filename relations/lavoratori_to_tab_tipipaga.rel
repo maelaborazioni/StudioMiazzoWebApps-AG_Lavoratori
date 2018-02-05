@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/ma_anagrafiche/tab_tipipaga",
+items:[
+{foreignColumnName:"codice",operator:0,primaryDataProviderID:"codtipopaga",typeid:23,uuid:"D1F39593-2A21-42C4-BFCD-C5896EF55C53"}
+],
+joinType:1,
+name:"lavoratori_to_tab_tipipaga",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori",
+typeid:22,
+uuid:"9A203ED1-0054-400E-BF79-2A9ED00E8FE8"

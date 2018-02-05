@@ -1,0 +1,12 @@
+allowCreationRelatedRecords:true,
+allowParentDeleteWhenHavingRelatedRecords:false,
+deleteRelatedRecords:true,
+foreignDataSource:"db:/ma_anagrafiche/lavoratori_gestioneesterna",
+items:[
+{foreignColumnName:"idlavoratore",primaryDataProviderID:"idlavoratore",typeid:23,uuid:"0748D4E6-1C28-4735-8D30-531042A9A942"}
+],
+joinType:1,
+name:"lavoratori_to_lavoratori_gestioneesterna",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori",
+typeid:22,
+uuid:"E90215BB-4F61-447B-BDBE-6DB33E9B2FBF"

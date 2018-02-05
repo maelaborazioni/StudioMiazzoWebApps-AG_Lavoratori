@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/ma_anagrafiche/tab_tipirapporto",
+items:[
+{foreignColumnName:"codice",operator:0,primaryDataProviderID:"codtiporapporto",typeid:23,uuid:"A61CE812-2FFC-437D-979B-76F01F8E7F66"}
+],
+joinType:1,
+name:"lavoratori_to_tab_tipirapporto",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori",
+typeid:22,
+uuid:"CAB22616-2E1E-46F1-8EAC-7E05A1B4DE0D"

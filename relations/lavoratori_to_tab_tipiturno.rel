@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/ma_anagrafiche/tab_tipiturno",
+items:[
+{foreignColumnName:"codice",primaryDataProviderID:"codturnista_num",typeid:23,uuid:"D5C99F33-8650-4B76-A91D-D3D0B48E8C6B"}
+],
+joinType:1,
+name:"lavoratori_to_tab_tipiturno",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori",
+typeid:22,
+uuid:"B3B6F77B-671E-409F-BF2A-58B1ED0E9CC6"

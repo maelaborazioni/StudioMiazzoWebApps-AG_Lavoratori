@@ -1,0 +1,11 @@
+allowCreationRelatedRecords:false,
+allowParentDeleteWhenHavingRelatedRecords:false,
+foreignDataSource:"db:/ma_anagrafiche/ditte_inailvocitariffa",
+items:[
+{foreignColumnName:"iddittainailposizione",operator:0,primaryDataProviderID:"iddittainailposizione",typeid:23,uuid:"8FDB4E02-A987-4432-A44A-20F1E23B7E2D"}
+],
+joinType:1,
+name:"lavoratori_to_ditte_inailvocitariffa",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori",
+typeid:22,
+uuid:"6F229316-817B-4A98-81EF-051EC9DF58DD"

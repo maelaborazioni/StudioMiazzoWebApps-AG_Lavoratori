@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/ma_anagrafiche/ditte_schedastorica",
+items:[
+{foreignColumnName:"idditta",operator:0,primaryDataProviderID:"idditta",typeid:23,uuid:"C4F3C2DC-1CFE-4ABD-A2C7-0041752841EC"}
+],
+joinType:1,
+name:"lavoratori_to_ditte_schedastorica",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori",
+typeid:22,
+uuid:"D348B92C-8D66-4839-BE63-12BA1B79C90A"

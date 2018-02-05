@@ -1,0 +1,11 @@
+allowCreationRelatedRecords:true,
+deleteRelatedRecords:true,
+foreignDataSource:"db:/ma_anagrafiche/ditte_inailposizioni",
+items:[
+{foreignColumnName:"iddittainailposizione",primaryDataProviderID:"iddittainailposizione",typeid:23,uuid:"7BA5DD9C-235C-48E5-A99E-40C4EE31CE24"}
+],
+joinType:1,
+name:"lavoratori_to_ditte_inailposizioni",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori",
+typeid:22,
+uuid:"5EF822BB-73D1-4BAE-BFE1-A3EBEECD1A3C"

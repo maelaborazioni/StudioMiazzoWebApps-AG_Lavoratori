@@ -1,0 +1,7 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/ma_anagrafiche/lavoratori_vociauto",
+joinType:1,
+name:"lavoratori_vociauto_to_lavoratori_vociauto",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori_vociauto",
+typeid:22,
+uuid:"C0762239-732A-42C3-86BE-FB4A05CA2171"

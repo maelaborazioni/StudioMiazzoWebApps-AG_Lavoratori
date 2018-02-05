@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/ma_anagrafiche/tab_contrattiinserimento",
+items:[
+{foreignColumnName:"idtabcontrattoinserimento",primaryDataProviderID:"contr_ins_num",typeid:23,uuid:"F3BE1EBC-3DD1-4892-9368-4FAA4DE91F57"}
+],
+joinType:1,
+name:"lavoratori_to_tab_contrattiinserimento",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori",
+typeid:22,
+uuid:"C692ED2E-F45C-4DAC-ABAC-C54E028D00DC"

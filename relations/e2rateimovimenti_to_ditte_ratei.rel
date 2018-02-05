@@ -1,0 +1,9 @@
+foreignDataSource:"db:/ma_anagrafiche/ditte_ratei",
+items:[
+{foreignColumnName:"codice",primaryDataProviderID:"codice_rateo",typeid:23,uuid:"1C82D679-7772-4B48-BFDF-AC5F625E3246"}
+],
+joinType:1,
+name:"e2rateimovimenti_to_ditte_ratei",
+primaryDataSource:"db:/ma_presenze/e2rateimovimenti",
+typeid:22,
+uuid:"07709A12-3DE4-4A94-ADD1-91F2B83ECF3C"

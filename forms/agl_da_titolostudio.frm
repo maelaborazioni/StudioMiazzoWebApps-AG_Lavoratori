@@ -1,0 +1,15 @@
+dataSource:"db:/ma_anagrafiche/lavoratori",
+extendsID:"E1B6951E-8C22-4464-9B19-707548D2B2DE",
+items:[
+{
+height:480,
+partType:5,
+typeid:19,
+uuid:"FC44EFF2-877C-40FE-B994-1F018711ED52"
+}
+],
+name:"agl_da_titolostudio",
+size:"400,480",
+styleName:"leaf_style",
+typeid:3,
+uuid:"4ED8EF09-199B-4B14-93D6-42689D8ACCF0"

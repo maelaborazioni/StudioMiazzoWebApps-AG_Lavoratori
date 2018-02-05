@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/ma_anagrafiche/tab_categorieparticolari",
+items:[
+{foreignColumnName:"idtabcategorieparticolari",primaryDataProviderID:"codcatpart_num",typeid:23,uuid:"325B35CD-E165-42B4-99E7-A03269A30FD5"}
+],
+joinType:1,
+name:"lavoratori_to_tab_categorieparticolari",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori",
+typeid:22,
+uuid:"8734F33C-5C37-4BAF-AB05-135D7CD48490"

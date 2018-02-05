@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:false,
+foreignDataSource:"db:/ma_anagrafiche/ditte_schedastoricadettaglio",
+items:[
+{foreignColumnName:"iddittaschedastoricadettaglio",operator:0,primaryDataProviderID:"iddittaschedastoricadettaglio",typeid:23,uuid:"454D5B05-6074-4751-BF67-5DCFE9829611"}
+],
+joinType:0,
+name:"lavoratori_schedastorica_to_ditte_schedastoricadettaglio",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori_schedastorica",
+typeid:22,
+uuid:"14606618-AF46-4D60-9A9A-D4C4DBC86624"

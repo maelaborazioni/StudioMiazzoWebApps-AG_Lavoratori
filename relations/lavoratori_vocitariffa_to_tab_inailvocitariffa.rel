@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/ma_anagrafiche/tab_inailvocitariffa",
+items:[
+{foreignColumnName:"idinailvocitariffa",operator:0,primaryDataProviderID:"idinailvocetariffa",typeid:23,uuid:"1B1D2DE7-10D0-4C46-A9F0-860E4589776D"}
+],
+joinType:1,
+name:"lavoratori_vocitariffa_to_tab_inailvocitariffa",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori_vocitariffa",
+typeid:22,
+uuid:"D6A40543-0B06-489F-B9D7-D4464C026981"

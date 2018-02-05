@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:false,
+foreignDataSource:"db:/ma_anagrafiche/ditte_sedi",
+items:[
+{foreignColumnName:"iddittasede",operator:0,primaryDataProviderID:"iddittasede",typeid:23,uuid:"EAB62DB9-135A-4B77-BCBC-1EF27508E8E2"}
+],
+joinType:0,
+name:"lavoratori_to_ditte_sedi",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori",
+typeid:22,
+uuid:"2DF393F6-D583-4A07-8FDE-DB5C48DFE8F2"

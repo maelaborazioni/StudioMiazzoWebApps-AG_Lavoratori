@@ -1,0 +1,11 @@
+allowCreationRelatedRecords:true,
+allowParentDeleteWhenHavingRelatedRecords:false,
+foreignDataSource:"db:/ma_anagrafiche/lavoratori_schedastorica",
+items:[
+{foreignColumnName:"idlavoratore",operator:0,primaryDataProviderID:"idlavoratore",typeid:23,uuid:"61DCEF41-E9CF-4BC0-987F-E7738E4FBEFB"}
+],
+joinType:0,
+name:"lavoratori_to_lavoratori_schedastorica",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori",
+typeid:22,
+uuid:"82D4DEB1-A39C-4541-A833-05CEDF86E1F2"

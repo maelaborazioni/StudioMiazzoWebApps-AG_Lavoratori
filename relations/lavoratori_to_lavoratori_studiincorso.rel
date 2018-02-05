@@ -1,0 +1,11 @@
+allowCreationRelatedRecords:true,
+deleteRelatedRecords:true,
+foreignDataSource:"db:/ma_anagrafiche/lavoratori_studiincorso",
+items:[
+{foreignColumnName:"idlavoratore",operator:0,primaryDataProviderID:"idlavoratore",typeid:23,uuid:"07EEE834-A69B-44A6-BAE6-87E033A622E6"}
+],
+joinType:0,
+name:"lavoratori_to_lavoratori_studiincorso",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori",
+typeid:22,
+uuid:"DC94EEC7-179A-47A8-8087-8971CC7BFC9A"

@@ -1,0 +1,7 @@
+allowCreationRelatedRecords:false,
+foreignDataSource:"db:/ma_presenze/e2dcg_decorrenza",
+joinType:0,
+name:"e2dcg_decorrenza_to_e2dcg_decorrenza",
+primaryDataSource:"db:/ma_presenze/e2dcg_decorrenza",
+typeid:22,
+uuid:"0164283C-2DB2-4090-925B-631200679EA0"

@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/ma_anagrafiche/tab_tipipagamento",
+items:[
+{foreignColumnName:"codice",operator:0,primaryDataProviderID:"codpagamento_num",typeid:23,uuid:"3DF5B6D4-5C2C-40E5-A3A8-6F09AD0E4243"}
+],
+joinType:1,
+name:"lavoratori_banche_to_tab_tipipagamento",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori_banche",
+typeid:22,
+uuid:"095073E7-376E-42C6-9A2D-D86D0371F24D"

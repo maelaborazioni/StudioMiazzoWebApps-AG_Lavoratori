@@ -1,0 +1,7 @@
+allowCreationRelatedRecords:false,
+foreignDataSource:"db:/ma_anagrafiche/lavoratori_schedastorica",
+joinType:0,
+name:"lavoratori_schedastorica_to_lavoratori_schedastorica",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori_schedastorica",
+typeid:22,
+uuid:"DA2DEDAA-96D4-47E5-890E-990F4B65DAF5"

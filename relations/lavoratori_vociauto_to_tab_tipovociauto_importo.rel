@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:false,
+foreignDataSource:"db:/ma_anagrafiche/tab_tipivociauto",
+items:[
+{foreignColumnName:"idtabtipovoceauto",operator:0,primaryDataProviderID:"tipoimporto",typeid:23,uuid:"3DF1E921-9642-48AA-AAD6-CE3A74ACED10"}
+],
+joinType:0,
+name:"lavoratori_vociauto_to_tab_tipovociauto_importo",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori_vociauto",
+typeid:22,
+uuid:"81A039BB-EA3A-4459-BB33-8DD4D8D6CEB4"

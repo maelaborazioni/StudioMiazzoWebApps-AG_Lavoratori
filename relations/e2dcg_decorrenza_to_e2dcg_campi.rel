@@ -1,0 +1,11 @@
+allowCreationRelatedRecords:false,
+allowParentDeleteWhenHavingRelatedRecords:true,
+foreignDataSource:"db:/ma_presenze/e2dcg_campi",
+items:[
+{foreignColumnName:"iddcg_campi",operator:0,primaryDataProviderID:"iddcg_campi",typeid:23,uuid:"005AA570-2C37-423A-817D-56DAFF909AFB"}
+],
+joinType:0,
+name:"e2dcg_decorrenza_to_e2dcg_campi",
+primaryDataSource:"db:/ma_presenze/e2dcg_decorrenza",
+typeid:22,
+uuid:"86687AF3-A89D-4648-95E2-AB4A795C4BD2"

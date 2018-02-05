@@ -1,0 +1,14 @@
+extendsID:"3C295B82-6004-4D09-9237-A3446D9636D2",
+items:[
+{
+extendsID:"1538D0B1-913E-478E-BC09-196805C3BF2F",
+height:156,
+typeid:19,
+uuid:"0BB6C975-26AD-4EFC-9D9A-0A0092A0BC09"
+}
+],
+name:"agl_dettagliotitolostudio_main_old",
+onRecordEditStopMethodID:"-1",
+size:"600,480",
+typeid:3,
+uuid:"3E986B45-8B2B-430B-9075-B6FD5A236F32"

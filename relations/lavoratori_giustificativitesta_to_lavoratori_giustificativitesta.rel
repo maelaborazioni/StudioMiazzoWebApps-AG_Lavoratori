@@ -1,0 +1,7 @@
+allowCreationRelatedRecords:false,
+foreignDataSource:"db:/ma_anagrafiche/lavoratori_giustificativitesta",
+joinType:1,
+name:"lavoratori_giustificativitesta_to_lavoratori_giustificativitesta",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori_giustificativitesta",
+typeid:22,
+uuid:"2A4B88E2-4605-4D96-B981-A01A4805F239"

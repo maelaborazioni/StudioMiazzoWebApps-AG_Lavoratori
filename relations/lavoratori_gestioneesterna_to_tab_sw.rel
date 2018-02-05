@@ -1,0 +1,9 @@
+foreignDataSource:"db:/ma_anagrafiche/tab_sw",
+items:[
+{foreignColumnName:"codice",primaryDataProviderID:"codlavoratoretracciato",typeid:23,uuid:"511BC51F-8EE6-4F89-A05D-0DECC2BD72FE"}
+],
+joinType:1,
+name:"lavoratori_gestioneesterna_to_tab_sw",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori_gestioneesterna",
+typeid:22,
+uuid:"53A56441-EFB5-4C2A-981E-36EBCFB5CFFF"

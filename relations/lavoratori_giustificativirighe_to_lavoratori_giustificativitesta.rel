@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/ma_anagrafiche/lavoratori_giustificativitesta",
+items:[
+{foreignColumnName:"idlavoratoregiustificativotesta",operator:0,primaryDataProviderID:"idlavoratoregiustificativotesta",typeid:23,uuid:"F9698BF1-9852-4201-B2E9-C6945542EC13"}
+],
+joinType:1,
+name:"lavoratori_giustificativirighe_to_lavoratori_giustificativitesta",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori_giustificativirighe",
+typeid:22,
+uuid:"3F76D199-B85A-427B-8D53-8966BDA69C56"

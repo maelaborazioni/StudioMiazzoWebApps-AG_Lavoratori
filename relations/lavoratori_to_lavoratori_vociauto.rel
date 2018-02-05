@@ -1,0 +1,12 @@
+allowCreationRelatedRecords:true,
+allowParentDeleteWhenHavingRelatedRecords:true,
+deleteRelatedRecords:true,
+foreignDataSource:"db:/ma_anagrafiche/lavoratori_vociauto",
+items:[
+{foreignColumnName:"idlavoratore",operator:0,primaryDataProviderID:"idlavoratore",typeid:23,uuid:"28BC030E-EE93-4C05-813D-DFDD24808D01"}
+],
+joinType:0,
+name:"lavoratori_to_lavoratori_vociauto",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori",
+typeid:22,
+uuid:"A74B241F-4919-4201-B93E-23D075B9079F"

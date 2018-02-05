@@ -1,0 +1,7 @@
+allowCreationRelatedRecords:false,
+foreignDataSource:"db:/ma_anagrafiche/lavoratori_classificazioni",
+joinType:0,
+name:"lavoratori_classificazioni_to_lavoratori_classificazioni",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori_classificazioni",
+typeid:22,
+uuid:"DE0295FA-7D4D-41EB-9E73-DB4B106465B5"

@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/ma_anagrafiche/lavoratori_vocitariffa",
+items:[
+{foreignColumnName:"idlavoratore",operator:0,primaryDataProviderID:"idlavoratore",typeid:23,uuid:"2E103C25-C680-47CA-AADF-044A646202BC"}
+],
+joinType:1,
+name:"lavoratori_to_lavoratori_vocitariffa",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori",
+typeid:22,
+uuid:"07664220-A4CD-49E3-BD06-97B1BC0419AC"

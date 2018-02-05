@@ -1,0 +1,11 @@
+allowCreationRelatedRecords:false,
+foreignDataSource:"db:/ma_anagrafiche/v_lavoratori_classificazioni",
+items:[
+{foreignColumnName:"idditta",operator:0,primaryDataProviderID:"idditta",typeid:23,uuid:"3255D96D-4FFA-4435-AF24-19A66A6B6B31"},
+{foreignColumnName:"idlavoratore",operator:0,primaryDataProviderID:"idlavoratore",typeid:23,uuid:"6E4CF3F7-BA80-43D4-BE7B-58D29F1D165D"}
+],
+joinType:0,
+name:"lavoratori_to_v_lavoratori_classificazioni",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori",
+typeid:22,
+uuid:"4E8382D0-5E6E-4C6D-B0C9-1FFD61CF1EA7"

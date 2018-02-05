@@ -1,0 +1,15 @@
+dataSource:"db:/ma_anagrafiche/lavoratori_schedastorica",
+extendsID:"0",
+items:[
+{
+height:480,
+partType:5,
+typeid:19,
+uuid:"3D1D6C49-3520-46BE-85FE-95837030E11A"
+}
+],
+name:"agl_schedastorica",
+size:"400,480",
+styleName:"leaf_style",
+typeid:3,
+uuid:"9D772041-9BFD-49EE-AFA3-C2E542DEB4C9"

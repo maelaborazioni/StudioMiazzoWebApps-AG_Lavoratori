@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/ma_anagrafiche/lavoratori",
+items:[
+{foreignColumnName:"idlavoratore",primaryDataProviderID:"id_legato_int",typeid:23,uuid:"8F6A4569-B390-4BEE-8D51-9231370DA21A"}
+],
+joinType:1,
+name:"e2dcg_decorrenza_to_lavoratori",
+primaryDataSource:"db:/ma_presenze/e2dcg_decorrenza",
+typeid:22,
+uuid:"DB5EFE39-2459-49DB-8F25-C4B40553CAD1"

@@ -1,0 +1,11 @@
+allowCreationRelatedRecords:true,
+allowParentDeleteWhenHavingRelatedRecords:false,
+foreignDataSource:"db:/ma_anagrafiche/ditte_inailposizioni",
+items:[
+{foreignColumnName:"iddittainailposizione",primaryDataProviderID:"iddittainailposizione",typeid:23,uuid:"D1511547-208D-4539-83F9-9BF4EF4D44F4"}
+],
+joinType:1,
+name:"ditte_inailsedi_to_ditte_inailposizioni",
+primaryDataSource:"db:/ma_anagrafiche/ditte_inailsedi",
+typeid:22,
+uuid:"A4AA3CD2-3B99-4539-ADA0-135AB73DD77A"

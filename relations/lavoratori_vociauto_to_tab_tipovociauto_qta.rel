@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:false,
+foreignDataSource:"db:/ma_anagrafiche/tab_tipivociauto",
+items:[
+{foreignColumnName:"idtabtipovoceauto",operator:0,primaryDataProviderID:"tipoqta",typeid:23,uuid:"7475726B-8DC3-4E78-B627-B2D7F67671D8"}
+],
+joinType:0,
+name:"lavoratori_vociauto_to_tab_tipovociauto_qta",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori_vociauto",
+typeid:22,
+uuid:"655EDBF1-7AAD-4A10-978A-1A2F0AC8C80F"

@@ -1,0 +1,10 @@
+deleteRelatedRecords:true,
+foreignDataSource:"db:/ma_anagrafiche/ditte_inps",
+items:[
+{foreignColumnName:"iddittainps",primaryDataProviderID:"iddittainps",typeid:23,uuid:"DB6EB3AC-E119-4704-9C52-26C284EAFA55"}
+],
+joinType:1,
+name:"lavoratori_to_ditte_inps",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori",
+typeid:22,
+uuid:"6E509F40-FB05-420C-B8E5-DD483A5FC076"

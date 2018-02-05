@@ -1,0 +1,15 @@
+dataSource:"db:/ma_anagrafiche/lavoratori",
+extendsID:"98ABEBCA-CBE9-46AD-98E0-6907EC9583EB",
+items:[
+{
+height:480,
+partType:5,
+typeid:19,
+uuid:"D77BC6FB-5DC8-4092-87D3-A0FCE14F4E51"
+}
+],
+name:"agl_da_datianagrafici_statocivile_main",
+size:"400,480",
+styleName:"leaf_style",
+typeid:3,
+uuid:"7ED54517-8E60-4596-ADC3-65A5327F3E7A"

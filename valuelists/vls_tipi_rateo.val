@@ -1,0 +1,12 @@
+addEmptyValue:1,
+customValues:"A - Residuo iniziale |A\r\
+B - Maturato |B\r\
+C - Goduto |C\r\
+D - Previsto impegnato |D\r\
+E - Liquidato |E\r\
+H - Storno ore maturato |H\r\
+I - Accantonato |I\r\
+",
+name:"vls_tipi_rateo",
+typeid:34,
+uuid:"CEB901D4-B41A-4011-9EF8-E1E1B994B10B"

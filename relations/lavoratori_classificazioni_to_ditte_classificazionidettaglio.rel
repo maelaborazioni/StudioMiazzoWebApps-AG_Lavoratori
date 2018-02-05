@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:false,
+foreignDataSource:"db:/ma_anagrafiche/ditte_classificazionidettaglio",
+items:[
+{foreignColumnName:"codice",operator:0,primaryDataProviderID:"codclassificazione",typeid:23,uuid:"11DDA8D1-BD8F-4D27-A301-E09854A42FF1"}
+],
+joinType:0,
+name:"lavoratori_classificazioni_to_ditte_classificazionidettaglio",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori_classificazioni",
+typeid:22,
+uuid:"F4A542AE-87C3-46F7-BF6D-36131B928C8D"

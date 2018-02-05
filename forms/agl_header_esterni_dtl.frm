@@ -1,0 +1,16 @@
+extendsID:"26EB50EC-F990-4ABB-B913-B0E52A8A98C0",
+items:[
+{
+extendsID:"E6A8C742-2F21-4308-A63D-0E01291717AB",
+height:45,
+typeid:19,
+uuid:"13B8EBA0-70F4-463C-9BAE-D47116986BFE"
+}
+],
+name:"agl_header_esterni_dtl",
+onRecordSelectionMethodID:"7CF95C08-E69A-4976-AD72-4626EEA858AF",
+size:"860,55",
+styleName:"leaf_style",
+titleText:null,
+typeid:3,
+uuid:"9E8C7475-DCF3-4EFE-9AEF-AA150A8C0647"

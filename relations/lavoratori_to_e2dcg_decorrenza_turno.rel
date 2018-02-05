@@ -1,0 +1,11 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/ma_presenze/e2dcg_decorrenza",
+items:[
+{foreignColumnName:"id_legato",primaryDataProviderID:"idlavoratore_string",typeid:23,uuid:"6B872A08-124D-4859-8FB3-1EF73D22E62D"},
+{foreignColumnName:"iddcg_campi",primaryDataProviderID:"scopes.globals.decTurno",typeid:23,uuid:"84E26214-407B-460A-B076-8E03EF166185"}
+],
+joinType:1,
+name:"lavoratori_to_e2dcg_decorrenza_turno",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori",
+typeid:22,
+uuid:"946503C8-4C85-41D6-881D-359AC260A873"

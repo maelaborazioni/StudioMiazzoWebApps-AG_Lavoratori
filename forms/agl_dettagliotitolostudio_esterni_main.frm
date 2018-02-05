@@ -1,0 +1,14 @@
+dataSource:"db:/ma_anagrafiche/lavoratori",
+extendsID:"3C295B82-6004-4D09-9237-A3446D9636D2",
+items:[
+{
+extendsID:"1538D0B1-913E-478E-BC09-196805C3BF2F",
+height:480,
+typeid:19,
+uuid:"923E5468-FC80-402F-889B-4E071F959A77"
+}
+],
+name:"agl_dettagliotitolostudio_esterni_main",
+size:"600,480",
+typeid:3,
+uuid:"8FF1562D-83F6-41C0-8021-257E02F9BEE9"

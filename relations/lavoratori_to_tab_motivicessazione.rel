@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/ma_anagrafiche/tab_motivicessazione",
+items:[
+{foreignColumnName:"codice",operator:0,primaryDataProviderID:"codmotivocessazione",typeid:23,uuid:"53D538B3-60A4-4FBF-B66E-415E0D1D263F"}
+],
+joinType:1,
+name:"lavoratori_to_tab_motivicessazione",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori",
+typeid:22,
+uuid:"3B7A01D9-46B1-40B5-A760-CC7E3B9F0ACB"

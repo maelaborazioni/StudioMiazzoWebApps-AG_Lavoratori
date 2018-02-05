@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/ma_anagrafiche/tab_tipigestionepresenze",
+items:[
+{foreignColumnName:"codice",operator:0,primaryDataProviderID:"codgestionepresenze",typeid:23,uuid:"FF594C51-C0D0-4062-80ED-57BCC5DFB09D"}
+],
+joinType:1,
+name:"lavoratori_to_tab_tipigestionepresenze",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori",
+typeid:22,
+uuid:"0D956FCF-E0C6-4F9F-ABB5-858634C8A55E"

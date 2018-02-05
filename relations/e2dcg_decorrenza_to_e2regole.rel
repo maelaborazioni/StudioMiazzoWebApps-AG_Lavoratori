@@ -1,0 +1,11 @@
+allowCreationRelatedRecords:false,
+allowParentDeleteWhenHavingRelatedRecords:true,
+foreignDataSource:"db:/ma_presenze/e2regole",
+items:[
+{foreignColumnName:"idregole",operator:0,primaryDataProviderID:"valore_int",typeid:23,uuid:"226E2CE3-3151-4127-8CDF-8F4BEBC28142"}
+],
+joinType:1,
+name:"e2dcg_decorrenza_to_e2regole",
+primaryDataSource:"db:/ma_presenze/e2dcg_decorrenza",
+typeid:22,
+uuid:"0AAA8F4A-CB18-4378-9324-4A243ADDF7A1"

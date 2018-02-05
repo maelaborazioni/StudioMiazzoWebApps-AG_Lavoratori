@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:false,
+foreignDataSource:"db:/ma_presenze/e2eventi",
+items:[
+{foreignColumnName:"idevento",operator:0,primaryDataProviderID:"idevento",typeid:23,uuid:"1A9F0974-1EB0-4830-BB0F-76745F489DE2"}
+],
+joinType:0,
+name:"lavoratori_vociauto_to_e2eventi",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori_vociauto",
+typeid:22,
+uuid:"2D15568A-80AF-4D96-8313-B6FCE8C28FD3"

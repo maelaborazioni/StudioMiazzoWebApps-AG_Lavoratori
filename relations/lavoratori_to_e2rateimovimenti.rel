@@ -1,0 +1,12 @@
+allowCreationRelatedRecords:true,
+allowParentDeleteWhenHavingRelatedRecords:false,
+deleteRelatedRecords:true,
+foreignDataSource:"db:/ma_presenze/e2rateimovimenti",
+items:[
+{foreignColumnName:"iddip",primaryDataProviderID:"idlavoratore",typeid:23,uuid:"815BAB4E-00CE-4924-9F33-D8FA93BD2359"}
+],
+joinType:1,
+name:"lavoratori_to_e2rateimovimenti",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori",
+typeid:22,
+uuid:"D61CEF33-CBC6-41A8-A752-F3360B359D18"

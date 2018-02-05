@@ -1,0 +1,11 @@
+allowCreationRelatedRecords:true,
+deleteRelatedRecords:true,
+foreignDataSource:"db:/ma_anagrafiche/persone_documenti",
+items:[
+{foreignColumnName:"codicefiscale",operator:0,primaryDataProviderID:"codicefiscale",typeid:23,uuid:"FB8D2924-B7AF-472E-9449-6ED79B0BCA0A"}
+],
+joinType:0,
+name:"lavoratori_to_persone_documenti",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori",
+typeid:22,
+uuid:"1BC8E735-4A45-4489-8B30-E2BDBA7EFAE1"
