@@ -1783,7 +1783,7 @@ function ottieniDataSetRateiDip(idDip,allaData,soloRateiDipendente,proiezioneRat
 function isBadgeAssegnato(nrBadge,decorrenza)
 {
 	/** @type{JSFoundset<db:/ma_presenze/e2dcg_decorrenza>} */
-	var fs = databaseManager.getFoundSet(globals.Server.MA_PRESENZE,'e2dcg_decorrenza');		
+	var fs = databaseManager.getFoundSet(globals.Server.MA_PRESENZE,globals.Table.LAVORATORI_DECORRENZE);		
 	if(fs.find())
 	{
 		fs.iddcg_campi = [2,12,16]; // corrispondenti ai diversi tipi di badge
@@ -1796,8 +1796,8 @@ function isBadgeAssegnato(nrBadge,decorrenza)
 			{
 				case 2:
 				case 12:
-					if(globals.getNrBadge(rec.e2dcg_decorrenza_to_lavoratori.idlavoratore,decorrenza) != null
-					   && globals.getNrBadge(rec.e2dcg_decorrenza_to_lavoratori.idlavoratore,decorrenza) == nrBadge.toString()		
+					if(rec.valore != null
+					   && rec.valore == nrBadge.toString()		
 					   && (rec.e2dcg_decorrenza_to_lavoratori.cessazione == null 
 						   || rec.e2dcg_decorrenza_to_lavoratori.cessazione >= decorrenza))
 					   return "Badge già assegnato al dipendente " + rec.e2dcg_decorrenza_to_lavoratori.codice + 
@@ -1805,7 +1805,7 @@ function isBadgeAssegnato(nrBadge,decorrenza)
 						       rec.e2dcg_decorrenza_to_lavoratori.lavoratori_to_persone.nominativo : rec.e2dcg_decorrenza_to_lavoratori.lavoratori_to_lavoratori_personeesterne.nominativo);
 					break;
 				case 16:
-				    if(globals.getNrBadge(rec.e2dcg_decorrenza_to_lavoratori.idlavoratore,decorrenza,true) != null
+				    if(rec.valore != null
 				    	&& rec.decorrenza > decorrenza)
 					   return "Badge occasionale già assegnato in futuro al dipendente " + rec.e2dcg_decorrenza_to_lavoratori.codice + 
 					       " - " + (rec.e2dcg_decorrenza_to_lavoratori.lavoratori_to_persone ?

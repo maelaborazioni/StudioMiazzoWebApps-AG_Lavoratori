@@ -150,14 +150,13 @@ function dc_save(_event, _triggerForm) {
 		// e l'aggiornamento in giornaliera diventi lungo...) : controllo su 30 giorni di differenza
 		var answer = true;
 		var numGiorniDiff = Math.abs(globals.dateDiff(globals.TODAY, forms.agl_dd_dtl_l._decorrenza, 1000 * 60 * 60 * 24));
-
 		if (numGiorniDiff >= 30)
 			answer = globals.ma_utl_showYesNoQuestion('La decorrenza inserita si discosta di almeno 30 giorni dalla data odierna. Proseguire comunque?', 'Controllo decorrenza');
 		if (!answer) {
 			dc_cancel(_event, _triggerForm);
 			return;
 		}
-
+		
 		_fs.id_legato = forms.agl_dd_main.idlavoratore.toString();
 		_fs.iddcg_campi = forms.agl_dd_dtl_l._iddcgcampi;
 		_fs.decorrenza = forms.agl_dd_dtl_l._decorrenza;
@@ -243,8 +242,6 @@ function dc_save(_event, _triggerForm) {
 	}
 
 }
-
-
 
 /** 
  * @param _event
