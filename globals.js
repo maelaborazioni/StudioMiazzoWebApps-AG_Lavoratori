@@ -1774,49 +1774,79 @@ function ottieniDataSetRateiDip(idDip,allaData,soloRateiDipendente,proiezioneRat
  * 
  * @param nrBadge
  * @param decorrenza
- *
- * @return {String}
+ * @param gruppoInst
+ * 
+ * @return {Object}
  * 
  * @properties={typeid:24,uuid:"0F999717-B0E8-41FC-B1F4-5E9335541199"}
  * @AllowToRunInFind
  */
-function isBadgeAssegnato(nrBadge,decorrenza)
+function isBadgeAssegnato(nrBadge,decorrenza,gruppoInst)
 {
-	/** @type{JSFoundset<db:/ma_presenze/e2dcg_decorrenza>} */
-	var fs = databaseManager.getFoundSet(globals.Server.MA_PRESENZE,globals.Table.LAVORATORI_DECORRENZE);		
-	if(fs.find())
+	var _badgeSql = 'SELECT * FROM [dbo].[F_Badge_AppartenenteA](?,?,?) ';
+	_badgeSql += 'WHERE Cessazione IS NULL OR Cessazione >= ?';
+	var _arrBadge = new Array()
+	var _grInst = gruppoInst;
+	var _badgeMsg = '';
+	var _badgeResp = false;
+	
+	_arrBadge.push(_grInst,nrBadge.toString(),utils.dateFormat(decorrenza,globals.ISO_DATEFORMAT),utils.dateFormat(decorrenza,globals.ISO_DATEFORMAT));
+	
+	var _dsBadge = databaseManager.getDataSetByQuery(globals.Server.MA_PRESENZE,_badgeSql,_arrBadge,10)
+		
+	if(_dsBadge.getMaxRowIndex() > 0)
 	{
-		fs.iddcg_campi = [2,12,16]; // corrispondenti ai diversi tipi di badge
-		fs.valore = nrBadge.toString();
-		var recs = fs.search();
-		for(var i = 1; i <= recs; i++)
-		{
-			var rec = fs.getRecord(i);
-			switch(rec.iddcg_campi)
-			{
-				case 2:
-				case 12:
-					if(rec.valore != null
-					   && rec.valore == nrBadge.toString()		
-					   && (rec.e2dcg_decorrenza_to_lavoratori.cessazione == null 
-						   || rec.e2dcg_decorrenza_to_lavoratori.cessazione >= decorrenza))
-					   return "Badge già assegnato al dipendente " + rec.e2dcg_decorrenza_to_lavoratori.codice + 
-						       " - " + (rec.e2dcg_decorrenza_to_lavoratori.lavoratori_to_persone ? 
-						       rec.e2dcg_decorrenza_to_lavoratori.lavoratori_to_persone.nominativo : rec.e2dcg_decorrenza_to_lavoratori.lavoratori_to_lavoratori_personeesterne.nominativo);
-					break;
-				case 16:
-				    if(rec.valore != null
-				    	&& rec.decorrenza > decorrenza)
-					   return "Badge occasionale già assegnato in futuro al dipendente " + rec.e2dcg_decorrenza_to_lavoratori.codice + 
-					       " - " + (rec.e2dcg_decorrenza_to_lavoratori.lavoratori_to_persone ?
-					       rec.e2dcg_decorrenza_to_lavoratori.lavoratori_to_persone.nominativo : rec.e2dcg_decorrenza_to_lavoratori.lavoratori_to_lavoratori_personeesterne.nominativo);
-					break;
-				default:
-					break;
-			}
-		}
+		/** @type Date*/
+		var _decBadge = _dsBadge.getValue(1,7)
+		_badgeResp = true;
+		_badgeMsg = "<html>Alla data " + decorrenza.getDate() + ' ' + globals.getNomeMese(decorrenza.getMonth() + 1) + ' ' + decorrenza.getFullYear()  +  ' il badge '+ nrBadge + ' risulta appartenente a ' + _dsBadge.getValue(1,10) + ' ' + _dsBadge.getValue(1,11) 
+		              + '<br/> dipendente della ditta  ' + _dsBadge.getValue(1,3) + ' - ' + _dsBadge.getValue(1,9) 
+					  + '<br/> con decorrenza ' + _decBadge.toLocaleDateString() + "</html>"
+		
 	}
-	return "";
+	else
+	{
+		_badgeResp = false;
+	    _badgeMsg = 'Nessun dipendente trovato per i parametri inseriti'
+	}
+	
+	return { value : _badgeResp, message : _badgeMsg  };
+	
+//	/** @type{JSFoundset<db:/ma_presenze/e2dcg_decorrenza>} */ 
+//	var fs = databaseManager.getFoundSet(globals.Server.MA_PRESENZE,globals.Table.LAVORATORI_DECORRENZE);		
+//	if(fs.find())
+//	{
+//		fs.iddcg_campi = [2,12,16]; // corrispondenti ai diversi tipi di badge
+//		fs.valore = nrBadge.toString();
+//		var recs = fs.search();
+//		for(var i = 1; i <= recs; i++)
+//		{
+//			var rec = fs.getRecord(i);
+//			switch(rec.iddcg_campi)
+//			{
+//				case 2:
+//				case 12:
+//					if(rec.valore != null
+//					   && rec.valore == nrBadge.toString()		
+//					   && (rec.e2dcg_decorrenza_to_lavoratori.cessazione == null 
+//						   || rec.e2dcg_decorrenza_to_lavoratori.cessazione >= decorrenza))
+//					   return "Badge già assegnato al dipendente " + rec.e2dcg_decorrenza_to_lavoratori.codice + 
+//						       " - " + (rec.e2dcg_decorrenza_to_lavoratori.lavoratori_to_persone ? 
+//						       rec.e2dcg_decorrenza_to_lavoratori.lavoratori_to_persone.nominativo : rec.e2dcg_decorrenza_to_lavoratori.lavoratori_to_lavoratori_personeesterne.nominativo);
+//					break;
+//				case 16:
+//				    if(rec.valore != null
+//				    	&& rec.decorrenza > decorrenza)
+//					   return "Badge occasionale già assegnato in futuro al dipendente " + rec.e2dcg_decorrenza_to_lavoratori.codice + 
+//					       " - " + (rec.e2dcg_decorrenza_to_lavoratori.lavoratori_to_persone ?
+//					       rec.e2dcg_decorrenza_to_lavoratori.lavoratori_to_persone.nominativo : rec.e2dcg_decorrenza_to_lavoratori.lavoratori_to_lavoratori_personeesterne.nominativo);
+//					break;
+//				default:
+//					break;
+//			}
+//		}
+//	}
+//	return "";
 }
 
 /**
@@ -1866,5 +1896,36 @@ function getPersonaEsterna(codiceFiscale)
 			return fsPersone.getSelectedRecord();
 	}
 	
+	return null;
+}
+
+/**
+ * @AllowToRunInFind
+ * 
+ * Restituisce lo storico delle decorrenze del lavoratore per il tipo di decorrenza specificato
+ *  
+ * @param {Number} idlavoratore
+ * @param {Number} tipoDecorrenza
+ *
+ * @return {JSFoundSet<db:/ma_presenze/e2dcg_decorrenza>}
+ * 
+ * @properties={typeid:24,uuid:"5AFE14E1-0BCB-45A4-A2BB-DCA22EB5B206"}
+ */
+function getDecorrenzeLavoratore(idlavoratore,tipoDecorrenza)
+{
+	/** @type {JSFoundSet<db:/ma_presenze/e2dcg_decorrenza>} */
+	var fs = databaseManager.getFoundSet(globals.Server.MA_PRESENZE,globals.Table.LAVORATORI_DECORRENZE);
+
+	if(fs.find())
+	{
+		fs.id_legato = idlavoratore.toString();
+		fs.iddcg_campi = tipoDecorrenza;
+		
+		if(fs.search())
+		{
+			fs.sort('decorrenza asc');
+			return fs;
+		}
+	}
 	return null;
 }
