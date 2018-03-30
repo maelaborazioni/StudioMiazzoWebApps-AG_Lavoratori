@@ -11,7 +11,7 @@ var dataFormattata = null;
  * 
  * @properties={typeid:35,uuid:"8428DBF6-3AA2-4EF9-9509-B54365EABED7",variableType:93}
  */
-var dataSituazioneAlGiorno = new Date();
+var dataSituazioneAlGiorno = null;
 
 /**
  * @param {String} tabFormName
@@ -71,8 +71,8 @@ function gestisciTabRateiTbl(tabFormName,tabName,formName,alladata,iddip){
 /**
  * Handle changed data.
  *
- * @param oldValue old value
- * @param newValue new value
+ * @param {Date} oldValue old value
+ * @param {Date} newValue new value
  * @param {JSEvent} event the event that triggered the action
  *
  * @returns {Boolean}
@@ -106,7 +106,8 @@ function onDataChange(oldValue, newValue, event)
 		    
 	/** @type {Date}*/
     var dataUltimoPeriodoPredisposto = globals.getLastDatePeriodo(anno * 100 + mese);
-	if (proiezioneRatei && newValue > dataUltimoPeriodoPredisposto)
+	newValue.setHours(0,0,0,0);
+    if (proiezioneRatei && newValue > dataUltimoPeriodoPredisposto)
 	{
 		setStatusWarning('Data non disponibile. Ultima data utile relativa all\'ultimo periodo predisposto per l\'invio : ' + globals.dateFormat(dataUltimoPeriodoPredisposto, globals.EU_DATEFORMAT));
 		return false;
@@ -128,6 +129,9 @@ function onRecordSelection(_event, _form)
 {
 	var anno;
 	var mese;
+	
+	_super.onRecordSelection(_event, _form);
+	
 	var proiezioneRatei = globals.getParameterValue(globals.getDitta(idlavoratore),'CRM') == 'C' ? true : false;
 	if(proiezioneRatei)
 	{
@@ -145,9 +149,10 @@ function onRecordSelection(_event, _form)
         dataSituazioneAlGiorno = data;
 	}
 	else
+	{
 		dataSituazioneAlGiorno = globals.TODAY;
-		    
-	return _super.onRecordSelection(_event, _form)
+	    dataSituazioneAlGiorno.setHours(0,0,0,0);
+	}	    
 }
 
 /**
@@ -162,12 +167,15 @@ function onShowForm(firstShow, event, svyNavBaseOnShow)
 {
     _super.onShowForm(firstShow, event, svyNavBaseOnShow);
     
+    dataSituazioneAlGiorno = new Date();
+    dataSituazioneAlGiorno.setHours(0,0,0,0);
+    
     var visible = globals.getTipologiaDitta(forms.agl_header_dtl.idditta) == globals.Tipologia.ESTERNA
             || globals.ma_utl_hasKey(globals.Key.GEST_ANAG_LAV);
     
     elements.lbl_gestione_ratei.visible = 
    		elements.btn_gestione_ratei.visible = visible;
-    
+   	   	
 }
 
 /**
