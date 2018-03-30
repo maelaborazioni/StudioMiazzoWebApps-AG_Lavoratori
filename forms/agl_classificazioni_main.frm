@@ -22,7 +22,7 @@ formIndex:6,
 items:[
 {
 containsFormID:"143792FD-8A6C-4D06-972A-4FDA6D263975",
-location:"0,50",
+location:"101,78",
 relationName:"lavoratori_to_ditte.ditte_to_v_ditte_raggruppamenti",
 text:"agl_cl_classificazioni_tbl",
 typeid:15,
@@ -43,7 +43,7 @@ formIndex:6,
 items:[
 {
 containsFormID:"2CA44972-216E-4359-8204-7603972AF232",
-location:"326,224",
+location:"315,225",
 relationName:"lavoratori_to_v_storico_lavoratori_raggruppamenti",
 text:"agl_cl_dettaglio_main",
 typeid:15,

@@ -50,8 +50,9 @@ function validaDec(_foundset) {
 			} else
 				aMsg = 'Impossibile inserire un valore vuoto per il badge!';
 			// controllo valori badges esistenti
-			aMsg = globals.isBadgeAssegnato(numBadge,dataDec);
-			
+			var obj = globals.isBadgeAssegnato(numBadge,dataDec,globals.getGruppoInstallazioneLavoratore(idlavoratore));
+			if(obj.value)
+			   aMsg = obj.message;
 		}
 		// validazione caso regola
 		else if (tipoDec == 3) {
@@ -145,10 +146,12 @@ function dc_save(_event, _triggerForm) {
 
 	var _fs = forms.agl_dd_tbl.foundset;
 
-	if (validaDec(_fs)) {
+	if (validaDec(_fs)) 
+	{
+		var answer = true;
+		        
 		// controllo per eventuali errori di digitazione della decorrenza (capita che sbaglino anno
 		// e l'aggiornamento in giornaliera diventi lungo...) : controllo su 30 giorni di differenza
-		var answer = true;
 		var numGiorniDiff = Math.abs(globals.dateDiff(globals.TODAY, forms.agl_dd_dtl_l._decorrenza, 1000 * 60 * 60 * 24));
 		if (numGiorniDiff >= 30)
 			answer = globals.ma_utl_showYesNoQuestion('La decorrenza inserita si discosta di almeno 30 giorni dalla data odierna. Proseguire comunque?', 'Controllo decorrenza');
@@ -156,6 +159,19 @@ function dc_save(_event, _triggerForm) {
 			dc_cancel(_event, _triggerForm);
 			return;
 		}
+		
+		// controllo presenza di eventuali fasce precedentemente programmate ed interessate dalla nuova/modifica decorrenza 
+        if(forms.agl_dd_dtl_l._iddcgcampi == 3)
+        {
+        	 var objProgFasce = verificaProgFasce(forms.agl_dd_main.idlavoratore,forms.agl_dd_dtl_l._decorrenza,forms.agl_dd_dtl_l._decorrenzaOld);
+        	 if(objProgFasce['response'])
+        	    answer = globals.ma_utl_showYesNoQuestion(objProgFasce['message'],'Controllo decorrenza');
+        	 if(!answer)
+        	 {
+        		 dc_cancel(_event, _triggerForm);
+     			 return;
+        	 }        		 
+        }
 		
 		_fs.id_legato = forms.agl_dd_main.idlavoratore.toString();
 		_fs.iddcg_campi = forms.agl_dd_dtl_l._iddcgcampi;
@@ -293,6 +309,21 @@ function dc_delete(_event)
 			//	var _decorrenzaOld = forms.agl_dd_dtl_l._decorrenzaOld;
 			var _iddcgcampi = forms.agl_dd_dtl_l._iddcgcampi;
 
+			// controllo presenza di eventuali fasce precedentemente programmate ed interessate dalla nuova/modifica decorrenza 
+	        if(_iddcgcampi == 3)
+	        {
+	        	var objProgFasce = verificaProgFasce(forms.agl_dd_main.idlavoratore,forms.agl_dd_dtl_l._decorrenza,forms.agl_dd_dtl_l._decorrenza);
+	        	 if(objProgFasce['response'])
+	        	 {   
+	        		 var answer = globals.ma_utl_showYesNoQuestion(objProgFasce['message'],'Controllo decorrenza');
+		        	 if(!answer)
+		        	 {
+		        		 dc_cancel(_event,null);
+		     			 return;
+		        	 }
+	        	 }
+	        }
+	        
 			_super.dc_delete(_event, 'svy_nav_fr_buttonbar_viewer', 'agl_dd_tbl', false);
 
 			var _params = globals.inizializzaParametriDecorrenza(foundset.idditta,
@@ -488,4 +519,83 @@ function resetStatus()
 {
 	_super.resetStatus();
 	forms[elements.tab_ma_status_bar.getTabFormNameAt(1)].resetStatus();
+}
+
+/**
+ * Verifica la presenza di fasce programmate nel periodo interessato dalla nuova decorrenza
+ * 
+ * @param {Number} idLavoratore
+ * @param {Date} decorrenza
+ * @param {Date} [oldDecorrenza]
+ * 
+ * @return {Object}
+ * 
+ * @properties={typeid:24,uuid:"791EFA74-95D2-4123-88C9-4BAC3E758E84"}
+ */
+function verificaProgFasce(idLavoratore,decorrenza,oldDecorrenza)
+{
+	var response = false;
+	var decDal = null;
+    var decAl = null;
+    var message = '';
+	
+    var fsDecLav = globals.getDecorrenzeLavoratore(forms.agl_dd_main.idlavoratore,3);
+    if(fsDecLav != null)
+    {
+	    for(var r = 1; r <= fsDecLav.getSize(); r++)
+	    {
+	    	var rec = fsDecLav.getRecord(r);
+	    	
+	    	if(oldDecorrenza && rec.decorrenza == oldDecorrenza)
+	    		continue;
+	    	
+	    	if(decorrenza > rec.decorrenza)
+	    	{
+	    		if(r == fsDecLav.getSize())
+	    		{
+	    			decDal = decorrenza;
+	    			decAl = null;
+	    			break;
+	    		}
+	    		else
+	    		{
+	    			var recNext = fsDecLav.getRecord(r + 1);
+	    			if(decorrenza > recNext.decorrenza)
+	    				continue;
+	    			else
+	    			{
+	    				decDal = decorrenza;
+	    				decAl = recNext.decorrenza;
+	    				continue;
+	    			}
+	    		}
+	    	}
+	    	else
+	    	{
+	    		if(r == 1)
+	    		{
+	    			decDal = globals.getDataAssunzione(forms.agl_dd_main.idlavoratore);
+	    			decAl = decorrenza;
+	    		}
+	    		else
+	    		{
+		    		decDal = oldDecorrenza < decorrenza ? oldDecorrenza : decorrenza;
+		    		decAl = rec.decorrenza;
+	    		}
+	    		break;
+	    	}
+	    }
+		
+	    var fsProgFasce = globals.getProgrammazioneFasceDalAl(forms.agl_dd_main.idlavoratore,decDal,decAl);
+	    if(fsProgFasce && fsProgFasce.getSize())
+	    {
+	    	response = true;
+	    	message = 'La programmazione fasce inserita per il periodo a partire dal giorno ' + globals.dateFormat(decDal,globals.EU_DATEFORMAT);
+	    	if(decAl != null)
+	    	   message += ' al giorno ' + globals.dateFormat(decAl,globals.EU_DATEFORMAT);
+	    	message += ' verr&#224 cancellata. Proseguire comunque?';
+	    }
+    }
+    return {response : response, dal : decDal , al: decAl, message : message};
+    
 }

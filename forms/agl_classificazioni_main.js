@@ -30,10 +30,12 @@ function getButtonObject()
 {
 	var btnObj = _super.getButtonObject();
 	
-		btnObj.btn_new = { enabled: false };
-		btnObj.btn_edit = { enabled: false };
-		btnObj.btn_delete = { enabled: false };
-		btnObj.btn_duplicate = { enabled: false };
+	var enabled = false; // TODO ticket 13106 : setting enable to true...
+	
+		btnObj.btn_new = { enabled : enabled };
+		btnObj.btn_edit = { enabled : false };
+		btnObj.btn_delete = { enabled : enabled };
+		btnObj.btn_duplicate = { enabled : false };
 		
 	return btnObj;
 }
@@ -108,6 +110,8 @@ function AggiornaClassificazioniDettaglio(_rec)
 		globals.ma_utl_showErrorDialog('Errore durante l\'inserimento della classificazione','Inserimento classificazione lavoratore');
 		return;
     }
+    
+    databaseManager.refreshRecordFromDatabase(lavoratori_to_lavoratori_classificazioni,-1);
 }
 
 /**
@@ -118,6 +122,11 @@ function AggiornaClassificazioniDettaglio(_rec)
 function FiltraClassificazioni(_fs)
 {
 	_fs.addFoundSetFilterParam('idditta','=',idditta);
+	// nel caso di ditta standard il cliente può associare solo classificazioni non gestite dallo Studio 
+	if(globals.getTipologiaDitta(idditta) == globals.Tipologia.STANDARD)
+		_fs.addFoundSetFilterParam('codice','!=',['1','2','3','4','5','6','7','8','9','10']);
+//	_fs.addFoundSetFilterParam('idditta','=',globals.getTipologiaDitta(idditta) == globals.Tipologia.ESTERNA ? 
+//			                                 globals.getDittaRiferimento(idditta) : idditta);
 	return _fs;
 }
 
@@ -141,6 +150,8 @@ function FiltraClassificazioniDettaglio(_fs)
 *
 * @properties={typeid:24,uuid:"A739C170-088E-455B-AB46-2062936D1E22"}
 */
-function dc_delete(_event, _triggerForm, _forceForm, _noConfirm) {
-	return _super.dc_delete(_event, _triggerForm, _forceForm, _noConfirm)
+function dc_delete(_event, _triggerForm, _forceForm, _noConfirm) 
+{	
+	// TODO è possibile eliminare un dettaglio classificazione per un lavoratore?
+	return false; 
 }

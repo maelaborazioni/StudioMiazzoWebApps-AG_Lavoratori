@@ -29,6 +29,7 @@ typeid:7,
 uuid:"2482676A-567C-4F7B-AC80-15CA5A46CEE3"
 },
 {
+enabled:false,
 formIndex:1,
 horizontalAlignment:0,
 labelFor:"fld_datacessazione",
@@ -62,6 +63,7 @@ uuid:"443D211F-B6B1-430F-AFE4-8B9074106945"
 },
 {
 dataProviderID:"assunzione",
+editable:false,
 format:"dd/MM/yyyy|mask",
 horizontalAlignment:2,
 location:"620,25",
@@ -75,6 +77,7 @@ uuid:"458B5867-023D-4DC1-9132-B53C8229BE59"
 },
 {
 dataProviderID:"codice",
+editable:false,
 formIndex:1,
 format:"######",
 horizontalAlignment:0,
@@ -88,6 +91,7 @@ uuid:"778DE396-8678-416E-9607-5CB5EA49FB4D"
 },
 {
 dataProviderID:"cessazione",
+editable:false,
 format:"dd/MM/yyyy|mask",
 horizontalAlignment:2,
 location:"710,25",
@@ -101,6 +105,7 @@ uuid:"7A4B6C70-738E-4866-8F63-61489E648D2B"
 },
 {
 dataProviderID:"lavoratori_to_persone.cognome",
+editable:false,
 formIndex:1,
 location:"70,25",
 name:"fld_cognome",
@@ -125,6 +130,7 @@ uuid:"82B1E746-05E2-44B3-B04F-DECB201FF557"
 },
 {
 dataProviderID:"lavoratori_to_persone.nome",
+editable:false,
 formIndex:2,
 location:"280,25",
 name:"fld_nome",
@@ -143,6 +149,7 @@ uuid:"AE45522D-0896-4220-84B8-9C4F3A3A91BB"
 },
 {
 dataProviderID:"codicefiscale",
+editable:false,
 format:"UUUUUU##U##U###U",
 horizontalAlignment:0,
 location:"490,25",
@@ -155,6 +162,7 @@ typeid:4,
 uuid:"C103469A-2C11-4CBB-953C-2E75820FDE20"
 },
 {
+enabled:false,
 formIndex:1,
 horizontalAlignment:0,
 labelFor:"fld_dataassunzione",

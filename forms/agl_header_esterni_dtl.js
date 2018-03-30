@@ -174,3 +174,88 @@ function onShowForm(_firstShow, _event)
 	    elements.btn_anaglav.enabled = true;
 	}
 }
+
+/**
+ * Handle changed data, return false if the value should not be accepted. In NGClient you can return also a (i18n) string, instead of false, which will be shown as a tooltip.
+ *
+ * @param {Date} oldValue old value
+ * @param {Date} newValue new value
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @return {Boolean}
+ *
+ * @private
+ *
+ * @properties={typeid:24,uuid:"D3E3D81D-84F7-4A35-B026-80442249921E"}
+ */
+function onDataChangeDataCessazione(oldValue, newValue, event) 
+{
+	if(newValue != null)
+		if(newValue < assunzione)
+		   return false;
+	return true;
+}
+
+/**
+ * @param event
+ * @param triggerForm
+ *
+ * @properties={typeid:24,uuid:"A3F6E887-4459-4ACD-BF42-8D9524E4AE45"}
+ */
+function dc_save(event,triggerForm)
+{
+	elements.fld_codicefiscale.editable =
+		elements.fld_cognome.editable =
+			elements.fld_nome.editable =
+	    		elements.fld_dataassunzione.editable =
+	    			elements.fld_datacessazione.editable = false;
+    elements.btn_dataassunzione.enabled =
+    	elements.btn_datacessazione.enabled = false;
+	    			
+	_super.dc_save(event,triggerForm,false);
+	
+	globals.rendiTimbratureRiassegnabili(idlavoratore,cessazione);
+	globals.pulisciGiornaliera(idlavoratore,cessazione);
+}
+/**
+ * @param {JSEvent} [_event]
+ * @param {String} [_triggerForm]
+ * @param {String} [_forceForm]
+ *
+ * @return {Object}
+ *
+ * @properties={typeid:24,uuid:"C7B8A8DC-79EE-4DFD-A1CE-E557A04B3D3A"}
+ */
+function dc_edit(_event, _triggerForm, _forceForm) 
+{
+    elements.fld_codicefiscale.editable =
+    	elements.fld_cognome.editable =
+    		elements.fld_nome.editable =
+	    		elements.fld_dataassunzione.editable =
+	    			elements.fld_datacessazione.editable = true;
+	elements.btn_dataassunzione.enabled =
+    	elements.btn_datacessazione.enabled = true;    	
+    	
+	return _super.dc_edit(_event, _triggerForm, _forceForm);
+}
+
+/**
+ * @param _event
+ * @param _triggerForm
+ * @param _noConfirm
+ *
+ * @properties={typeid:24,uuid:"45F55806-7AB8-4EF0-97E4-9DEFE4C6805E"}
+ */
+function dc_cancel(_event, _triggerForm, _noConfirm) 
+{
+	elements.fld_codicefiscale.editable =
+		elements.fld_cognome.editable =
+			elements.fld_nome.editable =
+	    		elements.fld_dataassunzione.editable =
+	    			elements.fld_datacessazione.editable = false;
+
+	elements.btn_dataassunzione.enabled =
+    	elements.btn_datacessazione.enabled = false;
+    	
+	return _super.dc_cancel(_event, _triggerForm, _noConfirm);
+}

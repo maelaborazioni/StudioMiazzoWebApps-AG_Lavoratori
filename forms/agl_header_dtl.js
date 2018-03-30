@@ -18,15 +18,6 @@ function filterLavoratori()
 }
 
 /**
- * @properties={typeid:24,uuid:"166C22FB-9A60-413F-905A-3A1D90B3DA8F"}
- */
-function getButtonObject()
-{
-	var btnObj = _super.getButtonObject();
-	return btnObj;
-}
-
-/**
  * @param {JSRecord} _rec
  *
  * @properties={typeid:24,uuid:"1C19EF84-DCE4-4EB7-B634-C6266D453701"}

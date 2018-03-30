@@ -53,7 +53,7 @@ function FiltraClassif(_fs) {
 	
 	//nel caso di ditta esterna di tipo interinale
 	if(forms.agl_dd_main.lavoratori_to_ditte.tipologia == 1
-			&& forms.agl_dd_main.lavoratori_to_ditte.ditte_to_ditte_legami.tipoesterni == 1)
+			&& forms.agl_dd_main.lavoratori_to_ditte.ditte_to_ditte_legami.tipoesterni == 0)
 			idDittaLegame = forms.agl_dd_main.lavoratori_to_ditte.ditte_to_ditte_legami.iddittariferimento;
 	else
 		idDittaLegame = forms.agl_dd_main.idditta;
@@ -187,7 +187,7 @@ function validaClassif()
 //		if(_foundset.find())
 //		{
 //			var _idditta = (forms.agl_dd_main.lavoratori_to_ditte.tipologia == 1 
-//			               && forms.agl_dd_main.lavoratori_to_ditte.ditte_to_ditte_legami.tipoesterni == 1) ?
+//			               && forms.agl_dd_main.lavoratori_to_ditte.ditte_to_ditte_legami.tipoesterni == 0) ?
 //					    forms.agl_dd_main.lavoratori_to_ditte.ditte_to_ditte_legami.iddittariferimento :
 //					    forms.agl_dd_main.idditta;	
 //			_foundset.idditta = _idditta;
