@@ -1,0 +1,9 @@
+foreignDataSource:"db:/ma_anagrafiche/ditte_legami",
+items:[
+{foreignColumnName:"idditta",primaryDataProviderID:"idditta",typeid:23,uuid:"AAB022F7-8D42-421D-9985-60086F923027"}
+],
+joinType:1,
+name:"lavoratori_to_ditte_legami",
+primaryDataSource:"db:/ma_anagrafiche/lavoratori",
+typeid:22,
+uuid:"EEA396C7-A934-4010-887D-FD1053679F71"
