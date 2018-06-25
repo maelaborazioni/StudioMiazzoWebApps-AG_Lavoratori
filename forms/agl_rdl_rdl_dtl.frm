@@ -67,6 +67,7 @@ null,\
 ]\
 }\
 }",
+enabled:false,
 formIndex:64,
 horizontalAlignment:0,
 labelFor:"fld_codcategoriaprotetta",
@@ -98,6 +99,7 @@ null,\
 ]\
 }\
 }",
+enabled:false,
 formIndex:22,
 labelFor:"fld_cod_pos_inail",
 location:"390,190",
@@ -157,6 +159,7 @@ null,\
 ]\
 }\
 }",
+enabled:false,
 formIndex:22,
 labelFor:"fld_cod_sdl",
 location:"60,150",
@@ -183,6 +186,7 @@ typeid:4,
 uuid:"2F7655DE-A400-4300-B4AB-D1E83AC878D8"
 },
 {
+enabled:false,
 formIndex:1,
 labelFor:"fld_anzmalattia",
 location:"340,40",
@@ -207,6 +211,7 @@ typeid:4,
 uuid:"321EFF7F-D741-4585-8A1E-9D88358F75E1"
 },
 {
+enabled:false,
 formIndex:1,
 labelFor:"fld_decorrrenzatfr",
 location:"160,40",
@@ -316,6 +321,7 @@ typeid:4,
 uuid:"4554F1A5-8758-41DD-A000-9AB6586DF7B2"
 },
 {
+enabled:false,
 formIndex:1,
 labelFor:"fld_anzferie",
 location:"430,40",
@@ -439,6 +445,7 @@ typeid:4,
 uuid:"67E2B9E8-D5EB-4E9F-8354-E664DA8D2FE7"
 },
 {
+enabled:false,
 formIndex:1,
 labelFor:"fld_anzcontributiva",
 location:"250,40",
@@ -478,6 +485,7 @@ null,\
 ]\
 }\
 }",
+enabled:false,
 formIndex:64,
 horizontalAlignment:0,
 labelFor:"fld_codcategoriaparticolare",
@@ -505,6 +513,7 @@ typeid:7,
 uuid:"696E297C-522F-44EA-90FC-5FAA30BD0C95"
 },
 {
+enabled:false,
 formIndex:1,
 labelFor:"fld_scadenzacontratto",
 location:"520,40",
@@ -557,6 +566,7 @@ typeid:7,
 uuid:"6FFDFD3B-B04A-4A97-BAAD-404313C6F908"
 },
 {
+enabled:false,
 formIndex:1,
 labelFor:"fld_cessazione",
 location:"210,80",
@@ -626,6 +636,7 @@ null,\
 ]\
 }\
 }",
+enabled:false,
 formIndex:22,
 labelFor:"fld_cod_pos_inps",
 location:"60,190",
@@ -787,6 +798,7 @@ null,\
 ]\
 }\
 }",
+enabled:false,
 formIndex:22,
 labelFor:"fld_codcontratto",
 location:"60,230",
@@ -869,6 +881,7 @@ null,\
 ]\
 }\
 }",
+enabled:false,
 formIndex:64,
 horizontalAlignment:0,
 labelFor:"fld_codturnista",
@@ -885,6 +898,7 @@ typeid:7,
 uuid:"DFF50D0E-CCB8-45C2-8BE7-20418ECEC6F1"
 },
 {
+enabled:false,
 formIndex:64,
 labelFor:"fld_assunzione",
 location:"70,40",
@@ -915,6 +929,7 @@ null,\
 ]\
 }\
 }",
+enabled:false,
 formIndex:22,
 labelFor:"fld_cod_qualifica",
 location:"390,230",
@@ -964,6 +979,7 @@ null,\
 ]\
 }\
 }",
+enabled:false,
 formIndex:64,
 horizontalAlignment:0,
 labelFor:"fld_codcategoriaprotetta",

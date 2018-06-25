@@ -243,7 +243,7 @@ function dc_save(_event, _triggerForm) {
 
 			_isNuovaDecorrenza = false;
 			_isDaCancel = false;
-			forms.agl_dd_dtl_l._decorrenzaOld
+			forms.agl_dd_dtl_l._decorrenzaOld = null;
 
 			globals.ma_utl_setStatus(globals.Status.BROWSE, 'agl_dd_dtl_l');
 			globals.ma_utl_setStatus(globals.Status.BROWSE, 'agl_dd_dtl_r_singolo');
@@ -269,7 +269,7 @@ function dc_cancel(_event, _triggerForm)
 {    
 	_isNuovaDecorrenza = false;
 	_isDaCancel = true;
-	forms.agl_dd_dtl_l._decorrenzaOld;
+	forms.agl_dd_dtl_l._decorrenzaOld = null;
 	
 	var frmName = forms.agl_dd_dtl.elements.right_tabless.getTabFormNameAt(1);
 	switch(frmName)

@@ -115,7 +115,7 @@ function onDataChange(oldValue, newValue, event)
 	
 	resetStatus();
 	gestisciTabRateiTbl(controller.getName(),'tabSitRatei','agl_ratei_main_tbl',dataSituazioneAlGiorno,idlavoratore);
-	
+		
 	return true;
 }
 
@@ -166,7 +166,7 @@ function onRecordSelection(_event, _form)
 function onShowForm(firstShow, event, svyNavBaseOnShow) 
 {
     _super.onShowForm(firstShow, event, svyNavBaseOnShow);
-    
+        
     dataSituazioneAlGiorno = new Date();
     dataSituazioneAlGiorno.setHours(0,0,0,0);
     

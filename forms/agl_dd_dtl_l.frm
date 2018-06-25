@@ -12,6 +12,7 @@ null,\
 ]\
 }\
 }",
+enabled:false,
 horizontalAlignment:0,
 labelFor:"fld_iddcg_campi",
 location:"140,20",
@@ -67,6 +68,7 @@ typeid:4,
 uuid:"978A48E7-EFF1-4B80-8B02-7E55E59404DC"
 },
 {
+enabled:false,
 horizontalAlignment:0,
 labelFor:"fld_decorrenza",
 location:"70,20",
