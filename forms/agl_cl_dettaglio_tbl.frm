@@ -1,7 +1,7 @@
-dataSource:"db:/ma_anagrafiche/v_storico_lavoratori_raggruppamenti",
+dataSource:"db:/ma_anagrafiche/lavoratori_classificazioni",
 items:[
 {
-dataProviderID:"codice",
+dataProviderID:"codclassificazione",
 editable:false,
 format:"#####",
 location:"0,20",
@@ -29,11 +29,12 @@ name:"lbl_decorrenza",
 styleClass:"table_header",
 text:"Decorrenza",
 typeid:7,
-uuid:"7F2E6249-D45A-48A6-8287-383C8F9B1ED7"
+uuid:"7F2E6249-D45A-48A6-8287-383C8F9B1ED7",
+visible:false
 },
 {
 anchors:11,
-dataProviderID:"descrizione",
+dataProviderID:"lavoratori_classificazioni_to_ditte_classificazionidettaglio.descrizione",
 editable:false,
 location:"60,20",
 name:"fld_descrizione",
@@ -61,7 +62,6 @@ typeid:19,
 uuid:"A788AC92-EEF3-4E64-BC82-D2DCC3FA7E48"
 },
 {
-dataProviderID:"decorrenza",
 editable:false,
 format:"dd/MM/yyyy",
 location:"400,20",
@@ -70,7 +70,8 @@ size:"80,20",
 styleClass:"table",
 transparent:true,
 typeid:4,
-uuid:"C2072D03-DDBC-4426-9F46-1F83C68AB787"
+uuid:"C2072D03-DDBC-4426-9F46-1F83C68AB787",
+visible:false
 }
 ],
 name:"agl_cl_dettaglio_tbl",

@@ -1,4 +1,4 @@
-dataSource:"db:/ma_anagrafiche/v_ditte_raggruppamenti",
+dataSource:"db:/ma_anagrafiche/ditte_classificazioni",
 items:[
 {
 horizontalAlignment:0,

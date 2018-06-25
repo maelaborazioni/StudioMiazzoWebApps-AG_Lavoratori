@@ -6,8 +6,9 @@ items:[
 formIndex:6,
 items:[
 {
-containsFormID:"2CA44972-216E-4359-8204-7603972AF232",
-location:"0,202",
+containsFormID:"D1FACD9A-9557-4DF5-B397-4641AEF53A8E",
+location:"195,225",
+relationName:"lavoratori_to_lavoratori_classificazioni",
 text:"agl_cl_dettaglio_main",
 typeid:15,
 uuid:"5D5A1756-C475-4D10-A8F2-CB3585635D78"
@@ -36,7 +37,7 @@ formIndex:6,
 items:[
 {
 containsFormID:"CF3CC320-3C70-40F7-A6D0-9067525FBC50",
-location:"0,50",
+location:"247,78",
 text:"agl_cl_classificazioni_storico_tbl",
 typeid:15,
 uuid:"6261C682-BBCF-4CE7-BB9A-4EEBBA68B3ED"

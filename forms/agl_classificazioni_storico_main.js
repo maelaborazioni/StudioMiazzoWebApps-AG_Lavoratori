@@ -30,10 +30,10 @@ function getButtonObject()
 {
 	var btnObj = _super.getButtonObject();
 	
-		btnObj.btn_new = { enabled: true };
-		btnObj.btn_edit = { enabled: false };
-		btnObj.btn_delete = { enabled: true };
-		btnObj.btn_duplicate = { enabled: false };
+	btnObj.btn_new = { enabled: true };
+	btnObj.btn_edit = { enabled: false };
+	btnObj.btn_delete = { enabled: true };
+	btnObj.btn_duplicate = { enabled: false };
 		
 	return btnObj;
 }
@@ -143,6 +143,7 @@ function FiltraClassificazioniDettaglio(_fs)
 *
 * @properties={typeid:24,uuid:"DD9A48FE-F17E-44B4-801B-95BFABAAE732"}
 */
-function dc_delete(_event, _triggerForm, _forceForm, _noConfirm) {
+function dc_delete(_event, _triggerForm, _forceForm, _noConfirm) 
+{
 	return _super.dc_delete(_event, _triggerForm, _forceForm, _noConfirm)
 }

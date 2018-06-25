@@ -1,5 +1,5 @@
 /**
- * @properties={typeid:24,uuid:"A0D4D61B-0A45-48D0-AFB7-685404E25D26"}
+ * @properties={typeid:24,uuid:"B3A4E484-EDEA-42BF-A6BE-DF4EF142F66B"}
  * @AllowToRunInFind
  */
 function filterData(fs)
@@ -24,7 +24,7 @@ function filterData(fs)
 }
 
 /**
- * @properties={typeid:24,uuid:"6DFB27DF-FDDB-4F54-8845-8F9A8D16B087"}
+ * @properties={typeid:24,uuid:"400B0BDD-C7BC-416D-8618-82744ACE8297"}
  * @AllowToRunInFind
  */
 function unfilterData(fs)
@@ -42,7 +42,7 @@ function unfilterData(fs)
 /**
  * @return {JSFoundset<db:/ma_anagrafiche/v_storico_lavoratori_raggruppamenti>}
  * 
- * @properties={typeid:24,uuid:"C08E55E3-BC84-4537-8E24-3AD62AC75C46"}
+ * @properties={typeid:24,uuid:"9CFD211B-3186-40CC-84F6-7363A849D9F0"}
  */
 function getHistoryFoundset()
 {
@@ -50,7 +50,7 @@ function getHistoryFoundset()
 }
 
 /**
- * @properties={typeid:24,uuid:"67DA4E30-BFB8-4EEC-8EFD-0DE1680251C5"}
+ * @properties={typeid:24,uuid:"C1DD2232-3E31-435A-8D70-A6771511E538"}
  */
 function sortFunction(first, second)
 {
@@ -58,7 +58,7 @@ function sortFunction(first, second)
 }
 
 /**
- * @properties={typeid:24,uuid:"230BCE0D-2958-449B-83BE-9BCF13058559"}
+ * @properties={typeid:24,uuid:"0F38AAAD-76EB-4940-B73F-247B5BCA2AB0"}
  */
 function isHistoryEnabled()
 {

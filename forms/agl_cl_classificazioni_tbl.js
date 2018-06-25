@@ -21,10 +21,12 @@ function updateData()
 	var frm = forms.agl_cl_dettaglio_main;
 	var fs = frm.foundset;
 	
-	if(foundset.codtipocampo && fs.find())
+	if(foundset && foundset.getSize() && fs.find())
 	{
-		fs['codtipocampo'] = foundset.codtipocampo;
+		fs['codtipoclassificazione'] = foundset.getSelectedRecord().codice;
 		fs.search();
-		fs.sort('decorrenza desc')
+		fs.sort('codice asc');
 	}
+	else
+		fs.clear();
 }

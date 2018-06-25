@@ -23,7 +23,7 @@ items:[
 {
 containsFormID:"143792FD-8A6C-4D06-972A-4FDA6D263975",
 location:"101,78",
-relationName:"lavoratori_to_ditte.ditte_to_v_ditte_raggruppamenti",
+relationName:"lavoratori_to_ditte.ditte_to_ditte_classificazioni",
 text:"agl_cl_classificazioni_tbl",
 typeid:15,
 uuid:"D99CEA63-1FC5-4B91-B4F9-8D3F1A1F3836"
@@ -42,9 +42,9 @@ uuid:"667ED95F-6EA3-455E-A4F6-E9FD5735DE3B"
 formIndex:6,
 items:[
 {
-containsFormID:"2CA44972-216E-4359-8204-7603972AF232",
+containsFormID:"D1FACD9A-9557-4DF5-B397-4641AEF53A8E",
 location:"315,225",
-relationName:"lavoratori_to_v_storico_lavoratori_raggruppamenti",
+relationName:"lavoratori_to_lavoratori_classificazioni",
 text:"agl_cl_dettaglio_main",
 typeid:15,
 uuid:"FC7E9FE8-9180-4C8B-B58B-E9E1D1A82C83"
