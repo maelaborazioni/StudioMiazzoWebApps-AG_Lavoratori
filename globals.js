@@ -1929,3 +1929,32 @@ function getDecorrenzeLavoratore(idlavoratore,tipoDecorrenza)
 	}
 	return null;
 }
+
+
+/**
+ * @param {Number} idDitta
+ * 
+ * @return {JSDataSet}
+ * @AllowToRunInFind
+ *
+ * @properties={typeid:24,uuid:"33F4171E-3F8F-45AA-A878-603D29D3564A"}
+ */
+function getRaggruppamentiDitta(idDitta)
+{
+	/**@type  {JSFoundSet<db:/ma_anagrafiche/ditte_classificazioni>} */
+	var fsRagg = databaseManager.getFoundSet(globals.Server.MA_ANAGRAFICHE,globals.Table.DITTE_CLASSIFICAZIONI);
+	if(fsRagg.find())
+	{
+		var arrDitte = [];
+		var arrDitteInterinali = globals.getDitteInterinali();
+		if(arrDitteInterinali && arrDitteInterinali.indexOf(idDitta) != -1)
+		   arrDitte = [globals.getDittaRiferimento(idDitta)];
+		arrDitte.push(idDitta);
+		
+		fsRagg.idditta = arrDitte;
+		if(fsRagg.search())
+			return databaseManager.convertToDataSet(fsRagg,['iddittaclassificazione','codice','descrizione']);
+	}
+	
+	return null;
+}
