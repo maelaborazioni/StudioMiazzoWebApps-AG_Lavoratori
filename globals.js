@@ -1930,30 +1930,55 @@ function getDecorrenzeLavoratore(idlavoratore,tipoDecorrenza)
 	return null;
 }
 
+/**
+ * Restituisce il record della classificazione ditta a cui appartiene il lavoratore
+ * 
+ * @param {Number} idLavoratore
+ * @param {String} codTipoClassificazione
+ * 
+ * @return {String}
+ * 
+ * @properties={typeid:24,uuid:"28F5A128-19A8-47E3-A196-024B657CE0DD"}
+ * @AllowToRunInFind
+ */
+function getCodiceDettaglioClassificazioneLavoratore(idLavoratore,codTipoClassificazione)
+{
+	/** @type {JSFoundSet<db:/ma_anagrafiche/lavoratori_classificazioni>}*/
+	var fs = databaseManager.getFoundSet(globals.Server.MA_ANAGRAFICHE,globals.Table.LAVORATORI_CLASSIFICAZIONI);
+	
+	if(fs.find())
+	{
+		fs.idlavoratore = idLavoratore;
+		fs.codtipoclassificazione = codTipoClassificazione;
+		
+		if(fs.search())
+			return fs.codclassificazione;
+	}
+	
+	return null;
+}
 
 /**
- * @param {Number} idDitta
- * 
- * @return {JSDataSet}
  * @AllowToRunInFind
- *
- * @properties={typeid:24,uuid:"33F4171E-3F8F-45AA-A878-603D29D3564A"}
+ * 
+ * Restituisce l'identificativo della sede di alvoro alla quale è assoiciato il lavoratore
+ * 
+ * @param {Number} idLavoratore
+ * 
+ * @return {Number}
+ * 
+ * @properties={typeid:24,uuid:"BFD80016-39A8-4922-8228-11FEFCB3C3BC"}
  */
-function getRaggruppamentiDitta(idDitta)
+function getIdSedeLavoro(idLavoratore)
 {
-	/**@type  {JSFoundSet<db:/ma_anagrafiche/ditte_classificazioni>} */
-	var fsRagg = databaseManager.getFoundSet(globals.Server.MA_ANAGRAFICHE,globals.Table.DITTE_CLASSIFICAZIONI);
-	if(fsRagg.find())
+	/** @type {JSFoundSet<db:/ma_anagrafiche/lavoratori>}*/
+	var fs = databaseManager.getFoundSet(globals.Server.MA_ANAGRAFICHE,globals.Table.LAVORATORI);
+	
+	if(fs.find())
 	{
-		var arrDitte = [];
-		var arrDitteInterinali = globals.getDitteInterinali();
-		if(arrDitteInterinali && arrDitteInterinali.indexOf(idDitta) != -1)
-		   arrDitte = [globals.getDittaRiferimento(idDitta)];
-		arrDitte.push(idDitta);
-		
-		fsRagg.idditta = arrDitte;
-		if(fsRagg.search())
-			return databaseManager.convertToDataSet(fsRagg,['iddittaclassificazione','codice','descrizione']);
+		fs.idlavoratore = idLavoratore;
+		if(fs.search())
+			return fs.iddittasede;
 	}
 	
 	return null;
