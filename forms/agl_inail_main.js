@@ -125,7 +125,7 @@ function AggiornaSelezioneVociTariffa(_rec)
 	var _perc = _rec['percponderazretrib'];
 	var _silicosi = _rec['rischiosilicosi'];
 		
-	/** @type {JSFoundset<db:/ma_anagrafiche/lavoratori_vocitariffa>}*/
+	/** @type {JSFoundSet<db:/ma_anagrafiche/lavoratori_vocitariffa>}*/
 	var fs = databaseManager.getFoundSet(globals.Server.MA_ANAGRAFICHE,globals.Table.LAVORATORI_VOCITARIFFA);
 	if(fs.find())
 	{

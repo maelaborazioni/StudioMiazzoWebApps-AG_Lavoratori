@@ -91,7 +91,7 @@ function updateDetail()
 			else if (frmDec._iddcgcampi == 24) 
 			{
                 // TODO aggiornamento selezione per classificazione
-                /** @type {JSFoundset<db:/ma_anagrafiche/gruppi_classificazionidettaglio>}*/
+                /** @type {JSFoundSet<db:/ma_anagrafiche/gruppi_classificazionidettaglio>}*/
                 var fsClassifDett = databaseManager.getFoundSet(globals.Server.MA_ANAGRAFICHE,globals.Table.GRUPPI_CLASSIFICAZIONI_DETTAGLIO);
 				if(fsClassifDett.find())
 				{

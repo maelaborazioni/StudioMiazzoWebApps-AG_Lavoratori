@@ -106,7 +106,7 @@ function onDataChangeCodTitoloStudio(oldValue, newValue, event)
 	if(!newValue)
 		return false;
 	
-	/** @type{JSFoundset<db:/ma_anagrafiche/tab_titolistudio>} */
+	/** @type{JSFoundSet<db:/ma_anagrafiche/tab_titolistudio>} */
 	var fs = databaseManager.getFoundSet(globals.Server.MA_ANAGRAFICHE, 'tab_titolistudio');
 	if (fs && fs.find())
 	{
@@ -164,7 +164,7 @@ function onDataChangeCodTitoloStudioDettaglio(oldValue, newValue, event)
 		return true;
 	}
 	
-	/** @type{JSFoundset<db:/ma_anagrafiche/tab_titolistudiodettaglio>} */
+	/** @type{JSFoundSet<db:/ma_anagrafiche/tab_titolistudiodettaglio>} */
 	var fs = databaseManager.getFoundSet(globals.Server.MA_ANAGRAFICHE, 'tab_titolistudiodettaglio');
 	if (fs && fs.find())
 	{
@@ -220,7 +220,7 @@ function onDataChangeCodTitoloStudioSpecializzazione(oldValue, newValue, event)
 		return true;
 	}
 	
-	/** @type{JSFoundset<db:/ma_anagrafiche/tab_titolistudiospecializzazioni>} */
+	/** @type{JSFoundSet<db:/ma_anagrafiche/tab_titolistudiospecializzazioni>} */
 	var fs = databaseManager.getFoundSet(globals.Server.MA_ANAGRAFICHE, 'tab_titolistudiospecializzazioni');
 	if (fs && fs.find())
 	{

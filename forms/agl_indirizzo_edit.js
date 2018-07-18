@@ -8,7 +8,7 @@ function confermaNuovoIndirizzo(event)
 {
 	databaseManager.startTransaction();
 	
-	/** @type {JSFoundset<db:/ma_anagrafiche/persone_domicili>} */
+	/** @type {JSFoundSet<db:/ma_anagrafiche/persone_domicili>} */
 	var fs = databaseManager.getFoundSet(globals.Server.MA_ANAGRAFICHE,globals.Table.PERSONE_DOMICILI);
 	var rec;
 	if(_isInEdit)
@@ -76,7 +76,7 @@ function onShowForm(firstShow, event, svyNavBaseOnShow)
 	
 	if(_isInEdit)
 	{
-		/** @type {JSFoundset<db:/ma_anagrafiche/persone_domicili>} */
+		/** @type {JSFoundSet<db:/ma_anagrafiche/persone_domicili>} */
 		var fs = databaseManager.getFoundSet(globals.Server.MA_ANAGRAFICHE,globals.Table.PERSONE_DOMICILI);
 		fs.find();
 		fs.idpersonadomicilio = _idIndEdit;

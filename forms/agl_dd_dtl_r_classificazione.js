@@ -58,7 +58,7 @@ function FiltraClassif(_fs) {
 	else
 		idDittaLegame = forms.agl_dd_main.idditta;
 	
-	/**@type {JSFoundset<db:/ma_anagrafiche/gruppi_ditte>}*/
+	/**@type {JSFoundSet<db:/ma_anagrafiche/gruppi_ditte>}*/
 	var fsGruppiDitte = databaseManager.getFoundSet(globals.Server.MA_ANAGRAFICHE,globals.Table.GRUPPI_DITTE)
 	if(fsGruppiDitte.find())
 	{
@@ -130,7 +130,7 @@ function AggiornaClassifDett(_rec) {
  */
 function onDataChangeClassif(oldValue, newValue, event) {
 	
-	/** @type {JSFoundset<db:/ma_anagrafiche/gruppi_classificazioni>} */
+	/** @type {JSFoundSet<db:/ma_anagrafiche/gruppi_classificazioni>} */
 	var _foundset = databaseManager.getFoundSet(globals.Server.MA_ANAGRAFICHE,
 		                                        globals.Table.GRUPPI_CLASSIFICAZIONI);
 
@@ -180,7 +180,7 @@ function validaClassif()
 	return true;
 //	if(_idRegola && _codRegola && _valoreAgg)
 //	{
-//		/** @type {JSFoundset<db:/ma_presenze/e2regole>} */
+//		/** @type {JSFoundSet<db:/ma_presenze/e2regole>} */
 //		var _foundset = databaseManager.getFoundSet(globals.Server.MA_PRESENZE,
 //			                                        globals.Table.REGOLE);
 //
@@ -217,7 +217,7 @@ function validaClassif()
  */
 function onDataChangeClassifDett(oldValue, newValue, event) 
 {
-	/** @type {JSFoundset<db:/ma_anagrafiche/gruppi_classificazionidettaglio>} */
+	/** @type {JSFoundSet<db:/ma_anagrafiche/gruppi_classificazionidettaglio>} */
 	var _foundset = databaseManager.getFoundSet(globals.Server.MA_ANAGRAFICHE,
 		                                        globals.Table.GRUPPI_CLASSIFICAZIONI_DETTAGLIO);
 

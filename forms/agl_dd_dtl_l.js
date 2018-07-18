@@ -150,7 +150,7 @@ function FiltraDecRilevanteCliente(fs)
  */
 function onDataChangeTipoDec(oldValue, newValue, event) {
 	
-	/** @type {JSFoundset<db:/ma_presenze/e2dcg_campi>} */
+	/** @type {JSFoundSet<db:/ma_presenze/e2dcg_campi>} */
 	var _foundset = databaseManager.getFoundSet(globals.nav.program['AG_Lkp_TipoDecorrenza'].server_name,
 		                                        globals.nav.program['AG_Lkp_TipoDecorrenza'].table_name);
 

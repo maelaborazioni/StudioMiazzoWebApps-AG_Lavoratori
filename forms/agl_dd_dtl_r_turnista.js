@@ -1,14 +1,14 @@
 /**
  * @type {String}
  *
- * @properties={typeid:35,uuid:"AECF88EF-D106-4D06-8E91-462084FA0DF7",variableType:12}
+ * @properties={typeid:35,uuid:"AECF88EF-D106-4D06-8E91-462084FA0DF7"}
  */
 var _codTurnista = '';
 
 /**
  * @type {String}
  *
- * @properties={typeid:35,uuid:"44CADA96-1CDD-4666-AEB4-D6E19B5E8D1C",variableType:12}
+ * @properties={typeid:35,uuid:"44CADA96-1CDD-4666-AEB4-D6E19B5E8D1C"}
  */
 var _descTurnista = '';
 
@@ -50,7 +50,7 @@ function AggiornaTurno(_rec) {
  */
 function onDataChangeTurno(oldValue, newValue, event) {
 	
-	/** @type {JSFoundset<db:/ma_presenze/e2tabtipiturno>} */
+	/** @type {JSFoundSet<db:/ma_presenze/e2tabtipiturno>} */
 	var _foundset = databaseManager.getFoundSet(globals.nav.program['AG_Lkp_TipiTurno'].server_name,
 		                                        globals.nav.program['AG_Lkp_TipiTurno'].table_name);
 

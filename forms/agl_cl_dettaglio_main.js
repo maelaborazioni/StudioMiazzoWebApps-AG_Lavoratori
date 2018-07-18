@@ -40,7 +40,7 @@ function unfilterData(fs)
 }
 
 /**
- * @return {JSFoundset<db:/ma_anagrafiche/v_storico_lavoratori_raggruppamenti>}
+ * @return {JSFoundSet<db:/ma_anagrafiche/lavoratori_classificazioni>}
  * 
  * @properties={typeid:24,uuid:"9CFD211B-3186-40CC-84F6-7363A849D9F0"}
  */

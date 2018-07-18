@@ -97,7 +97,7 @@ function filtraRegola(fsRegola)
  */
 function filtraContrattoDitta(fsCtr)
 {
-	/** @type {JSFoundset<db:/ma_anagrafiche/ditte_contratti>}*/
+	/** @type {JSFoundSet<db:/ma_anagrafiche/ditte_contratti>}*/
 	var fsCtrDitta = databaseManager.getFoundSet(globals.Server.MA_ANAGRAFICHE,globals.Table.DITTE_CONTRATTI); 
 	fsCtrDitta.find();
 	fsCtrDitta.idditta = _idDittaLegata;
@@ -238,7 +238,7 @@ function process_save_lavoratore_esterno(event)
 		 * Crea il record per la decorrenza della regola
 		 */
 		if (_idRegola != null) {
-			/** @type {JSFoundset<db:/ma_presenze/e2dcg_decorrenza>}*/
+			/** @type {JSFoundSet<db:/ma_presenze/e2dcg_decorrenza>}*/
 			var fsDecRegola = databaseManager.getFoundSet(globals.Server.MA_PRESENZE, globals.Table.LAVORATORI_DECORRENZE)
 			var newRegola = fsDecRegola.getRecord(fsDecRegola.newRecord());
 			if (!newRegola)
@@ -257,7 +257,7 @@ function process_save_lavoratore_esterno(event)
 		 * Crea il record per la decorrenza del badge
 		 */
 		if (_badge != null) {
-			/** @type {JSFoundset<db:/ma_presenze/e2dcg_decorrenza>}*/
+			/** @type {JSFoundSet<db:/ma_presenze/e2dcg_decorrenza>}*/
 			var fsDecBadge = databaseManager.getFoundSet(globals.Server.MA_PRESENZE, globals.Table.LAVORATORI_DECORRENZE)
 			var newBadge = fsDecBadge.getRecord(fsDecBadge.newRecord());
 			if (!newBadge)
