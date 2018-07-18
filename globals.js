@@ -33,7 +33,7 @@ function apriElencoRecapitiIndirizzoLavoratore(fs, codice)
 // TODO apriElencoRecapitiIndirizzoLavoratore : da eliminare?	
 //	var formName = forms.agl_recapiti_main.controller.getName();
 //	
-//	/** @type {JSFoundset<db:/ma_anagrafiche/lavoratori_datianagrafici>} */
+//	/** @type {JSFoundSet<db:/ma_anagrafiche/lavoratori_datianagrafici>} */
 //	var lavoratoriDomiciliFs = fs;
 //	
 //	/**
@@ -1812,7 +1812,7 @@ function isBadgeAssegnato(nrBadge,decorrenza,gruppoInst)
 	
 	return { value : _badgeResp, message : _badgeMsg  };
 	
-//	/** @type{JSFoundset<db:/ma_presenze/e2dcg_decorrenza>} */ 
+//	/** @type{JSFoundSet<db:/ma_presenze/e2dcg_decorrenza>} */ 
 //	var fs = databaseManager.getFoundSet(globals.Server.MA_PRESENZE,globals.Table.LAVORATORI_DECORRENZE);		
 //	if(fs.find())
 //	{
@@ -1862,7 +1862,7 @@ function isBadgeAssegnato(nrBadge,decorrenza,gruppoInst)
  */
 function getPersona(codiceFiscale)
 {
-	/** @type {JSFoundset<db:/ma_anagrafiche/persone>} */
+	/** @type {JSFoundSet<db:/ma_anagrafiche/persone>} */
 	var fsPersone = databaseManager.getFoundSet(globals.Server.MA_ANAGRAFICHE,globals.Table.PERSONE);
 	if(fsPersone.find())
 	{
@@ -1887,7 +1887,7 @@ function getPersona(codiceFiscale)
  */
 function getPersonaEsterna(codiceFiscale)
 {
-	/** @type {JSFoundset<db:/ma_anagrafiche/lavoratori_personeesterne>} */
+	/** @type {JSFoundSet<db:/ma_anagrafiche/lavoratori_personeesterne>} */
 	var fsPersone = databaseManager.getFoundSet(globals.Server.MA_ANAGRAFICHE,globals.Table.PERSONE_ESTERNE);
 	if(fsPersone.find())
 	{
@@ -1982,4 +1982,30 @@ function getIdSedeLavoro(idLavoratore)
 	}
 	
 	return null;
+}
+
+/**
+ * @AllowToRunInFind
+ * 
+ * Restituisce true se il lavoratore è di categoria tirocinante, false altrimenti
+ * 
+ * @param {Number} idLavoratore
+ * 
+ * @return {Boolean}
+ * 
+ * @properties={typeid:24,uuid:"A59F2BCC-19ED-427F-AD68-C1EB31345658"}
+ */
+function isTirocinante(idLavoratore)
+{
+	/** @type{JSFoundSet<db:/ma_anagrafiche/lavoratori>}*/
+	var fs = databaseManager.getFoundSet(globals.Server.MA_ANAGRAFICHE,globals.Table.LAVORATORI);
+	
+	if(fs.find())
+	{
+		fs.idlavoratore = idLavoratore;
+		if(fs.search())
+			return (fs.codcategoriaparticolare == 4);
+	}
+	
+	return false;
 }
