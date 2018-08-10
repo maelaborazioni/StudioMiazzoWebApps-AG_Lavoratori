@@ -57,7 +57,7 @@ function apriElencoRecapitiIndirizzoLavoratore(fs, codice)
 //			globals.ma_utl_showInfoDialog('i18n:ma.msg.norecord');
 //		}
 //	}
-		}
+}
 
 /**
  * @properties={typeid:24,uuid:"01DF5148-CE83-43B2-9844-05E7F1ACB53A"}
