@@ -211,8 +211,10 @@ function dc_save(event,triggerForm)
 	    			elements.fld_datacessazione.editable = false;
     elements.btn_dataassunzione.enabled =
     	elements.btn_datacessazione.enabled = false;
-	    			
-	_super.dc_save(event,triggerForm,false);
+	    		
+    // control if save operation has correctly been done 	
+	if(_super.dc_save(event,triggerForm,false) == -1)
+		return;
 	
 	globals.rendiTimbratureRiassegnabili(idlavoratore,cessazione);
 	globals.pulisciGiornaliera(idlavoratore,cessazione);

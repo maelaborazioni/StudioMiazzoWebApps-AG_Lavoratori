@@ -182,7 +182,7 @@ function AggiornaClassificazioniDettaglio(_rec)
 				application.output(failedrecords[fInd].exception.getErrorCode() + ' - ' + failedrecords[fInd].exception.getMessage(),LOGGINGLEVEL.WARNING);
 		}
 		databaseManager.rollbackTransaction();
-		globals.ma_utl_showErrorDialog('Errore durante l\'inserimento della classificazione','Inserimento classificazione lavoratore');
+		globals.ma_utl_showErrorDialog('Errore durante l\'inserimento della classificazione.<br/>Controllare che per il lavoratore non sia già presente un dettaglio per questa classificazione','Inserimento classificazione lavoratore');
 		return;
     }
     
@@ -210,7 +210,6 @@ function FiltraClassificazioni(_fs)
  */
 function FiltraClassificazioniDettaglio(_fs)
 {
-	_fs.addFoundSetFilterParam('idditta',"=",_idDitta);
 	_fs.addFoundSetFilterParam('iddittaclassificazione','=',_idDittaClassificazione);
 	return _fs;
 }
