@@ -447,10 +447,9 @@ function onRecordSelection(_event, _form)
  * @properties={typeid:24,uuid:"B9BB5043-EA39-43C4-8042-4CC66EC9F28D"}
  */
 function onShowForm(_firstShow, _event, svyNavBaseOnShow) 
-{
-//	plugins.busy.prepare();
-	
+{	
 	_super.onShowForm(_firstShow, _event, svyNavBaseOnShow);
+	gotoBrowse();
 	foundset.lavoratori_to_e2dcg_decorrenza.sort('decorrenza desc');
     svuotaFormSenzaRecord(_event);
 }
