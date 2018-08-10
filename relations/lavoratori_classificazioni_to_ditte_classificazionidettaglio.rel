@@ -1,7 +1,6 @@
 foreignDataSource:"db:/ma_anagrafiche/ditte_classificazionidettaglio",
 items:[
-{foreignColumnName:"codice",primaryDataProviderID:"codclassificazione",typeid:23,uuid:"11DDA8D1-BD8F-4D27-A301-E09854A42FF1"},
-{foreignColumnName:"iddittaclassificazione",primaryDataProviderID:"iddittaclassificazione",typeid:23,uuid:"85F88733-EE14-4B85-8D90-D6F36FA00D68"}
+{foreignColumnName:"codice",primaryDataProviderID:"codclassificazione",typeid:23,uuid:"11DDA8D1-BD8F-4D27-A301-E09854A42FF1"}
 ],
 name:"lavoratori_classificazioni_to_ditte_classificazionidettaglio",
 primaryDataSource:"db:/ma_anagrafiche/lavoratori_classificazioni",
