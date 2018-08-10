@@ -83,6 +83,9 @@ function gestisciTabRateiTbl(tabFormName,tabName,formName,alladata,iddip){
  */
 function onDataChange(oldValue, newValue, event) 
 {	
+	if(!newValue)
+		return false;
+	
 	var anno;
 	var mese;
 	var proiezioneRatei = globals.getParameterValue(globals.getDitta(idlavoratore),'CRM') == 'C' ? true : false;
