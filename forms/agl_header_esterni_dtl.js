@@ -211,7 +211,10 @@ function dc_save(event,triggerForm)
 	    			elements.fld_datacessazione.editable = false;
     elements.btn_dataassunzione.enabled =
     	elements.btn_datacessazione.enabled = false;
-	    		
+	 
+    // rielaborazione campo nominativo Ticket #14651	
+    lavoratori_to_lavoratori_personeesterne.nominativo = lavoratori_to_lavoratori_personeesterne.cognome + " " + lavoratori_to_lavoratori_personeesterne.nome;	
+    	
     // control if save operation has correctly been done 	
 	if(_super.dc_save(event,triggerForm,false) == -1)
 		return;
