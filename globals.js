@@ -2009,3 +2009,23 @@ function isTirocinante(idLavoratore)
 	
 	return false;
 }
+/**
+ * @return {JSFoundSet<db:/ma_presenze/e2dcg_campi>}
+ * @AllowToRunInFind
+ *
+ * @properties={typeid:24,uuid:"362CA66D-F5A0-496E-9676-AF4C535FCFF5"}
+ */
+function getRecsTipiDecorrenzaCliente()
+{
+	/** @type {JSFoundSet<db:/ma_presenze/e2dcg_campi>}*/
+	var fs = databaseManager.getFoundSet(globals.Server.MA_PRESENZE,globals.Table.DECORRENZE_CAMPI).duplicateFoundSet();
+	
+	if(fs.find())
+	{
+		fs.rilevantecliente = 1;
+		if(fs.search())
+			return fs;
+	}
+	
+	return null;
+}
