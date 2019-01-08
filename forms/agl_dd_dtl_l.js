@@ -150,24 +150,24 @@ function FiltraDecRilevanteCliente(fs)
  */
 function onDataChangeTipoDec(oldValue, newValue, event) {
 	
-	/** @type {JSFoundSet<db:/ma_presenze/e2dcg_campi>} */
-	var _foundset = databaseManager.getFoundSet(globals.nav.program['AG_Lkp_TipoDecorrenza'].server_name,
-		                                        globals.nav.program['AG_Lkp_TipoDecorrenza'].table_name);
-
-	if(_foundset.find())
-		_foundset.iddcg_campi = newValue;
-	_foundset.search();
-
-	if (_foundset.getSize() > 0) {
-
-	    AggiornaTipoDecorrenza(_foundset.getSelectedRecord(),
-	    	                   _foundset['iddcg_campi']);
-		
-	} else {
-		globals.svy_nav_showLookupWindow(event, '_iddccgcampi', 'AG_Lkp_TipoDecorrenza', 'AggiornaTipoDecorrenza',
-		  	                             'FiltraDecRilevanteCliente', null, null, '', true);
+	var fsDecCliente = globals.getRecsTipiDecorrenzaCliente();
+	if(fsDecCliente.find())
+	{
+		fsDecCliente.iddcg_campi = newValue;
+		fsDecCliente.search();
+	}
+			
+	var arrIdCampi = fsDecCliente.getSize() ? globals.foundsetToArray(fsDecCliente,'iddcg_campi') : [];
+	
+	if(arrIdCampi.indexOf(newValue) != -1)
+	{
+		AggiornaTipoDecorrenza(fsDecCliente.getSelectedRecord(),newValue);
+		return true;
 	}
 	
+	globals.svy_nav_showLookupWindow(event, '_iddccgcampi', 'AG_Lkp_TipoDecorrenza', 'AggiornaTipoDecorrenza',
+	 	                             'FiltraDecRilevanteCliente', null, null, '', true);
+		
 	return true;
 }
 
