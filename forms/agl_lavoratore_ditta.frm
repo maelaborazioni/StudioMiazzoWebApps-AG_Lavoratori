@@ -346,7 +346,7 @@ uuid:"3F91155F-BDD7-4DAE-A420-2990C931EF2A"
 {
 extendsID:"3ABA8076-CC29-4C23-B357-37158AFA11D6",
 formIndex:1,
-location:"20,530",
+location:"20,580",
 size:"380,20",
 typeid:7,
 uuid:"3FACBFE8-A7D6-45CC-9894-2BB898B16AB7"
@@ -355,7 +355,7 @@ uuid:"3FACBFE8-A7D6-45CC-9894-2BB898B16AB7"
 formIndex:32,
 horizontalAlignment:0,
 labelFor:"chk_mensa",
-location:"532,536",
+location:"699,470",
 name:"lbl_mensa",
 size:"50,20",
 text:"Mensa",
@@ -446,7 +446,7 @@ uuid:"57A7A6B7-07F3-4145-A541-D503451BC0F6"
 },
 {
 anchors:6,
-location:"445,495",
+location:"445,545",
 mediaOptions:2,
 name:"btn_conferma_dip",
 onActionMethodID:"A96EA93E-A970-4E4E-B3A4-B1463C26D043",
@@ -577,7 +577,7 @@ uuid:"6F251A45-7ACD-4114-AD80-2C98A214F0D6"
 },
 {
 extendsID:"A248BFB3-52A0-4525-98C8-5C43ED80D0BF",
-height:550,
+height:600,
 typeid:19,
 uuid:"7049206F-110A-4779-A51A-D26D318B3015"
 },
@@ -623,7 +623,7 @@ uuid:"77825EF2-177E-427E-9748-626024496173"
 {
 extendsID:"6B6DE138-9200-412A-B457-A03880CD4042",
 formIndex:2,
-location:"2,532",
+location:"2,582",
 size:"18,18",
 typeid:7,
 uuid:"77E0B3FC-BF55-4287-8AE9-E9D7381BEB97"
@@ -670,6 +670,15 @@ typeid:4,
 uuid:"9337C64D-7D23-497B-A6E3-230B2AFB517E"
 },
 {
+dataProviderID:"_email",
+formIndex:71,
+location:"30,540",
+name:"fld_email",
+size:"330,20",
+typeid:4,
+uuid:"9A9DE6CF-4314-4F7D-9824-276E2E322A2F"
+},
+{
 displayType:4,
 enabled:false,
 formIndex:33,
@@ -684,7 +693,7 @@ uuid:"9B2DB5FA-3F93-4F43-8D3B-CC9B5F4D4BEF"
 },
 {
 extendsID:"AAAC08F8-0270-4E48-995F-E7066E036521",
-height:530,
+height:580,
 typeid:19,
 uuid:"9CADBD78-F134-4A2D-8A7B-9FA4EEC82E9C"
 },
@@ -754,7 +763,7 @@ valuelistID:"953009D6-B6CF-401C-AA21-43F926348BB0"
 displayType:4,
 formIndex:31,
 horizontalAlignment:0,
-location:"547,556",
+location:"714,490",
 name:"chk_mensa",
 size:"20,20",
 styleClass:"check",
@@ -786,8 +795,18 @@ typeid:7,
 uuid:"BC830587-4A4C-400C-8A7B-048AB85AF11F"
 },
 {
+formIndex:72,
+labelFor:"fld_email",
+location:"30,520",
+name:"lbl_email",
+text:"Email",
+transparent:true,
+typeid:7,
+uuid:"BDD09B5D-5664-433F-A6D2-0E1F2DBC338E"
+},
+{
 anchors:6,
-location:"475,495",
+location:"475,545",
 mediaOptions:2,
 mnemonic:"",
 name:"btn_annulla_dip",
@@ -953,7 +972,7 @@ uuid:"ED7813A5-2C71-4D4D-9D6F-C722DC5CD3EC"
 {
 extendsID:"24B81C90-FFDE-4CA0-8622-BBF835989F6D",
 formIndex:0,
-location:"0,530",
+location:"0,580",
 size:"509,20",
 typeid:7,
 uuid:"EF092F8A-0C68-4D9A-A770-C66FBF1A4F48"

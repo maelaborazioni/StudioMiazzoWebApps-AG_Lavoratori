@@ -162,7 +162,7 @@ function process_save_lavoratore_esterno(event)
 		newLavoratore.codditta = _codiceDitta;
 		newLavoratore.posizioneinps = _codiceInpsDip || globals.getCodDittaInpsDefault(_idDitta);
 		newLavoratore.codice = _codiceDip;
-//		newLavoratore.codicefiscale = _codiceFiscale;
+		//newLavoratore.codicefiscale = _codiceFiscale;
 		newLavoratore.iddittasede = _idDittaSede;
 		newLavoratore.codcontratto = _codGrContr;
 		newLavoratore.codqualifica = _codQualifica;
@@ -195,7 +195,22 @@ function process_save_lavoratore_esterno(event)
 		newPersonaEsterna.sesso = _sesso;
 		newPersonaEsterna.nominativo = newPersonaEsterna.cognome + ' ' + newPersonaEsterna.nome;
 		newPersonaEsterna.codicefiscale = _codiceFiscale;
-				
+		newPersonaEsterna.email = _email;
+		
+		// crea recapito di base per email
+		if(_email)
+		{
+			var newRecapitoMail = newPersonaEsterna.lavoratori_personeesterne_to_persone_recapiti.getRecord(newPersonaEsterna.lavoratori_personeesterne_to_persone_recapiti.newRecord());
+			if(!newRecapitoMail)
+				throw new Error('Errore durante al creazione del recapito standard (email)');
+			
+			newRecapitoMail.codtiporecapito = 'M'; // indirizzo mail
+			newRecapitoMail.nprrecapito = 1;
+			newRecapitoMail.datadecorrenza = null;
+			newRecapitoMail.valore = _email;
+			newRecapitoMail.manuale = 1;
+		}
+		
 		/**
 		 * Crea il lavoratore di job
 		 */

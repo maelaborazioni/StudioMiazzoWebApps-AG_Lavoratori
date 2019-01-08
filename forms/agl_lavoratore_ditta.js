@@ -323,6 +323,13 @@ var _codTipoRapporto = null;
 var _codTurnista = null;
 
 /**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"6F8AFECB-EF3D-44E4-A4B1-BC72F3F94887"}
+ */
+var _email = '';
+
+/**
  * @properties={typeid:24,uuid:"B8FCD71C-27F3-4A48-9168-F3578540CCAF"}
  */
 function settaCodiceDipendente()
@@ -634,6 +641,20 @@ function confermaNuovoDip(event)
 				newPersona.nome 	  = _nome ? _nome : "";
 				newPersona.sesso      = _sesso;
 				newPersona.nominativo = newPersona.cognome + ' ' + newPersona.nome;
+			}
+			
+			// crea recapito di base per email
+			if(_email)
+			{
+				var newRecapitoMail = newPersona.persone_to_persone_recapiti.getRecord(newPersona.persone_to_persone_recapiti.newRecord());
+				if(!newRecapitoMail)
+					throw new Error('Errore durante al creazione del recapito standard (email)');
+				
+				newRecapitoMail.codtiporecapito = 'M'; // indirizzo mail
+				newRecapitoMail.nprrecapito = 1;
+				newRecapitoMail.datadecorrenza = null;
+				newRecapitoMail.valore = _email;
+				newRecapitoMail.manuale = 1;
 			}
 			
 			 /**

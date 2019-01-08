@@ -14,7 +14,7 @@ uuid:"0B633F04-6145-4ADF-9444-BC504E2ABCD2"
 },
 {
 extendsID:"A248BFB3-52A0-4525-98C8-5C43ED80D0BF",
-height:550,
+height:600,
 typeid:19,
 uuid:"163A2749-937B-4DA1-9348-C0C34863BA63"
 },
@@ -65,7 +65,7 @@ visible:false
 {
 extendsID:"24B81C90-FFDE-4CA0-8622-BBF835989F6D",
 formIndex:0,
-location:"0,530",
+location:"0,580",
 size:"456,20",
 typeid:7,
 uuid:"43B55942-151D-4FA6-BFE4-E94A9CF3F4CE"
@@ -78,7 +78,7 @@ uuid:"58907BEA-D642-46F7-B708-61F63B772D86"
 },
 {
 extendsID:"BFE70906-0F7F-4D00-9F25-AAC4C539A557",
-location:"420,495",
+location:"420,545",
 typeid:7,
 uuid:"9D53649A-DF63-4396-BAD1-02D341400771"
 },
@@ -98,7 +98,7 @@ visible:false
 },
 {
 extendsID:"5988DAA4-5001-43CE-9438-CBD5A43DC9E4",
-location:"390,495",
+location:"390,545",
 onActionMethodID:"92BCDF11-98F5-40BE-9525-78805E071439",
 typeid:7,
 uuid:"D5A9B1B7-586A-4029-866D-E41AD475A580"
@@ -130,7 +130,7 @@ uuid:"D97FBF15-DE30-46CD-B2E5-398CEA394431"
 {
 extendsID:"3ABA8076-CC29-4C23-B357-37158AFA11D6",
 formIndex:2,
-location:"25,530",
+location:"25,580",
 size:"431,20",
 typeid:7,
 uuid:"E912D797-AB59-4D88-881A-F420F14B9DF1"
