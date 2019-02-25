@@ -40,6 +40,9 @@ function gestisciTabRateiTbl(tabFormName,tabName,formName,alladata,iddip){
 	if(history.removeForm(_vFormName))	
        solutionModel.removeForm(_vFormName);
 	
+	if(alladata == null)
+		return;
+	
 	solutionModel.cloneForm(_vFormName, solutionModel.getForm('agl_ratei_tbl'));
 	solutionModel.getForm(_vFormName).dataSource = vDataSourceRateiDip;
     solutionModel.getForm(_vFormName).getField('descrizione').dataProviderID = 'Descrizione';
