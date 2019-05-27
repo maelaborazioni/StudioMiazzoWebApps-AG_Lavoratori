@@ -66,12 +66,17 @@ function onDataChangeCessazione(oldValue, newValue, event)
 	if(newValue != '' 
 		&& newValue < assunzione)
 	{
-		globals.ma_utl_showWarningDialog('La data di cessazione non può essere precedente alla data di cessazione','Inserimento data di cessazione');
+		globals.ma_utl_showWarningDialog('La data di cessazione non può essere precedente alla data di assunzione','Inserimento data di cessazione');
 		return false;
 	}
 	
 	if(newValue == '')
 		cessazione = null;
+	
+	// TODO aggiorna la situazione dell'utente corrispondente al lavoratore (se esiste)
+	if(globals.ma_utl_hasModule(globals.Module.AUTORIZZAZIONI))
+	   scopes.users.updateSecUserLavoratore(idlavoratore);
+	
 	return true;
 }
 
