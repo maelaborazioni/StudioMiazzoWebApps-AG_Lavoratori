@@ -118,7 +118,9 @@ function onActionInfoDecorrenzeTurnisti(event)
  */
 function filtraDitta(_fs)
 {
-	_fs.addFoundSetFilterParam('idditta','=',idditta);
+	_fs.addFoundSetFilterParam('idditta'
+		                       ,'='
+							   ,globals.isInterinale(idditta) ? globals.getDittaRiferimento(idditta) : idditta);
 	return _fs;
 }
 
@@ -130,7 +132,9 @@ function filtraDitta(_fs)
  */
 function filtraDittaInail(_fs)
 {
-	_fs.addFoundSetFilterParam('lavoratori_to_ditte.ditte_to_ditte_inailsede.ditte_inailsedi_to_ditte_inailposizioni.idditta','=',idditta);
+	_fs.addFoundSetFilterParam('lavoratori_to_ditte.ditte_to_ditte_inailsede.ditte_inailsedi_to_ditte_inailposizioni.idditta'
+		                       ,'='
+							   ,globals.isInterinale(idditta) ? globals.getDittaRiferimento(idditta) : idditta);
 	return _fs;
 }
 
@@ -164,7 +168,14 @@ function AggiornaContratto(_rec)
  */
 function AggiornaCategoriaProtetta(_rec)
 {
-	lavoratori_to_lavoratori_statoanag.codcategoriaprotetta = _rec['codice'];
+	if(lavoratori_to_lavoratori_statoanag && lavoratori_to_lavoratori_statoanag.getSize())
+	   lavoratori_to_lavoratori_statoanag.codcategoriaprotetta = _rec['codice'];
+	else
+	{
+		var rec = lavoratori_to_lavoratori_statoanag.getRecord(lavoratori_to_lavoratori_statoanag.newRecord());
+		rec.codcategoriaprotetta = _rec['codice'];
+		rec.cittadinanzastranieraverificata = 0;
+	}
 }
 
 /**
@@ -175,6 +186,7 @@ function AggiornaCategoriaProtetta(_rec)
  */
 function AggiornaTipoTurnista(_rec)
 {
+	codturnista = _rec['codice'];
 	codturnista_num = _rec['codice'];
 }
 
@@ -186,7 +198,7 @@ function AggiornaTipoTurnista(_rec)
  */
 function AggiornaCategPart(_rec)
 {
-	codcatpart_num = _rec['idtabcategorieparticolari'];
+	codcatpart_num = _rec['codice']; //_rec['idtabcategorieparticolari'];
 }
 /**
  *

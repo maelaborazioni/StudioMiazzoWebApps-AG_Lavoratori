@@ -72,7 +72,7 @@ formIndex:64,
 horizontalAlignment:0,
 labelFor:"fld_codcategoriaprotetta",
 location:"240,380",
-name:"btn_categoriaprotettac",
+name:"btn_contrattoinserimento",
 onActionMethodID:"09683411-0331-4A08-BF5E-656611194522",
 rolloverCursor:12,
 showClick:false,
@@ -790,7 +790,7 @@ null,\
 \"'radicecontratto'\",\
 \"'AG_Lkp_GruppiContrattuali'\",\
 \"'AggiornaContratto'\",\
-\"'filtraDitta'\",\
+null,\
 null,\
 null,\
 null,\
@@ -984,7 +984,7 @@ formIndex:64,
 horizontalAlignment:0,
 labelFor:"fld_codcategoriaprotetta",
 location:"390,300",
-name:"btn_categoriaparticolarec",
+name:"btn_categoriaprotetta",
 onActionMethodID:"09683411-0331-4A08-BF5E-656611194522",
 rolloverCursor:12,
 showClick:false,
