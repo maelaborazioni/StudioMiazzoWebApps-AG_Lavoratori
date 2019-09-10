@@ -18,13 +18,77 @@ function getButtonObject()
  */
 function dc_edit(event, triggerForm, forceForm)
 {
-	forms.agp_datianagrafici_esterni_dtl.controller.readOnly = false;
-	forms.agl_da_altridatianagrafici_dtl.controller.readOnly = false;
+	setEditStatus(true);
+	_super.dc_edit(event, triggerForm, forceForm);
 	
-	// Crea un nuovo record se non presente
-	if(!lavoratori_to_lavoratori_statoanag || lavoratori_to_lavoratori_statoanag.getSize() === 0)
-		lavoratori_to_lavoratori_statoanag.newRecord();
+	return; 
+}
 
-	globals.ma_utl_setStatus(globals.Status.EDIT,controller.getName())
-	return _super.dc_edit(event, triggerForm, forceForm);
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param event
+ * @param triggerForm
+ * @param forceForm
+ *
+ * @properties={typeid:24,uuid:"C4F4E3BF-79A7-49CD-859F-C67479B8DF41"}
+ * @override
+ */
+function dc_save(event,triggerForm,forceForm)
+{
+	setEditStatus(false);
+	
+	if(foundset.getSelectedRecord().lavoratori_to_lavoratori_statoanag 
+			&& foundset.getSelectedRecord().lavoratori_to_lavoratori_statoanag.getSize() == 1)
+		foundset.lavoratori_to_lavoratori_statoanag.cittadinanzastranieraverificata = 0;
+	
+	_super.dc_save(event,triggerForm,forceForm);
+}
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param _event
+ * @param _triggerForm
+ * @param _noConfirm
+ *
+ * @properties={typeid:24,uuid:"AEAFFBF7-3D16-4C1E-A44E-87E41364F697"}
+ * @override
+ */
+function dc_cancel(_event,_triggerForm,_noConfirm)
+{
+    setEditStatus(false);
+	_super.dc_cancel(_event,_triggerForm,_noConfirm);
+}
+
+/**
+ * Aggiorna situazione di modifica dei campi/pulsanti interessati
+ * 
+ * @param {Boolean} enable
+ *
+ * @properties={typeid:24,uuid:"BEAE3FF1-1487-4A26-9646-64AC3DCAB5F7"}
+ */
+function setEditStatus(enable)
+{
+	var frmDatiAnagEst = forms.agp_datianagrafici_esterni_dtl;
+	var elemDatiAnagEst = frmDatiAnagEst.elements;
+	frmDatiAnagEst.controller.readOnly = !enable;
+	
+	elemDatiAnagEst.fld_cognome.enabled =
+	elemDatiAnagEst.fld_nome.enabled = 
+	elemDatiAnagEst.fld_sesso.enabled = 	
+	elemDatiAnagEst.btn_datanascita.enabled =
+	elemDatiAnagEst.btn_luogonascita.enabled =
+	elemDatiAnagEst.btn_statoestero.enabled = 
+	elemDatiAnagEst.fld_codicefiscale.enabled = 
+	elemDatiAnagEst.fld_datanascita.enabled = 
+	elemDatiAnagEst.fld_luogonascita.enabled =
+	elemDatiAnagEst.fld_statoestero.enabled = enable;
+	
+	var frmAltriDatiAnag = forms.agl_da_altridatianagrafici_dtl;
+	var elemAltriDatiAnag = frmAltriDatiAnag.elements;
+	frmAltriDatiAnag.controller.readOnly = !enable;
+	
+	elemAltriDatiAnag.btn_cittadinanza.enabled = 
+	elemAltriDatiAnag.btn_statocivile.enabled = enable;
+
+	globals.ma_utl_setStatus(globals.Status.EDIT,controller.getName());
 }

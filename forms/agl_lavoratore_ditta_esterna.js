@@ -13,13 +13,11 @@ function AggiornaSelezioneDitta(_rec){
 	_idInpsDitta = _rec['ditte_to_ditte_legami']['ditte_legami_to_ditte_inps']['iddittainps'];
 	_idDittaInailPosizione = _rec['ditte_to_ditte_legami']['ditte_legami_to_ditte_inailposizioni']['iddittainailposizione'];
 	
-	// selezione automatica del codice dipendente con codice di valore numerico pari
-	// al valore max correntemente presente più uno
-	var sqlMax = "SELECT MAX(Codice) FROM Lavoratori"; //" WHERE idDitta = ?";
-	var arrMax = []; //[_idDitta];
-	var dsMax = databaseManager.getDataSetByQuery(globals.Server.MA_ANAGRAFICHE,sqlMax,arrMax,-1);
-	var currMaxCod = dsMax.getValue(1,1);
-	_codiceDip = currMaxCod + 1;
+	settaCodiceDipendente();
+	
+	AggiornaClassificazioni();
+		
+	elements.fld_badge.visible = elements.fld_badge_dal.visible = (_idDitta != null && globals.haOrologio(_idDittaLegata));
 }
 
 /**
@@ -211,6 +209,32 @@ function process_save_lavoratore_esterno(event)
 			newRecapitoMail.manuale = 1;
 		}
 		
+		// crea recapito telefono cellulare
+		if(_cellulare)
+		{
+			var newRecapitoCell = newPersonaEsterna.lavoratori_personeesterne_to_persone_recapiti.getRecord(newPersonaEsterna.lavoratori_personeesterne_to_persone_recapiti.newRecord());
+			if(!newRecapitoCell)
+				throw new Error('Errore durante al creazione del recapito standard (email)');
+			
+			newRecapitoCell.codtiporecapito = 'C'; // cellulare
+			newRecapitoCell.nprrecapito = 1;
+			newRecapitoCell.datadecorrenza = null;
+			newRecapitoCell.valore = _cellulare;
+			newRecapitoCell.manuale = 1;
+		}
+		
+		// crea il dettaglio della classificazione principale
+		if(_codRaggruppamentoDett)
+		{
+			var newLavoratoreClass = newLavoratore.lavoratori_to_lavoratori_classificazioni.getRecord(newLavoratore.lavoratori_to_lavoratori_classificazioni.newRecord());
+			if(!newLavoratoreClass)
+				throw new Error('Errore durante la creazione della classificazione');
+			
+			newLavoratoreClass.idditta = newLavoratore.idditta;
+			newLavoratoreClass.codtipoclassificazione = _idDittaClassificazione;
+			newLavoratoreClass.codclassificazione = _codRaggruppamentoDett;
+		}
+		
 		/**
 		 * Crea il lavoratore di job
 		 */
@@ -226,7 +250,9 @@ function process_save_lavoratore_esterno(event)
 
 		newLavoratoreJob.codcontratto = _codGrContr + '00' + _finaleContratto;
 		newLavoratoreJob.qualificaassicurativa = 1;
-
+        
+		if(_codLivello)
+		   newLavoratoreJob.codlivello = _codLivello;
 		/**
 		 * Crea i record necessari per l'inquadramento
 		 */
@@ -296,8 +322,12 @@ function process_save_lavoratore_esterno(event)
 				throw new Error('Errore durante la creazione delle decorrenze del lavoratore esterno: ' + failedRecordsDec[0].exception.getMessage());
 		}
 
+		// forza l'aggiornamento dei filtri lavoratori per consentire anche ad utenti non gestori di ricaricare la nuova situazione (rif. ticket 16001)
+		globals.ma_sec_setUsersFilters();
+		
 		databaseManager.refreshRecordFromDatabase(fs, -1);
 		globals.lookupFoundset(newLavoratore.idlavoratore, forms.agl_header_esterni_dtl.foundset);
+		
 		globals.ma_utl_setStatus(globals.Status.BROWSE, controller.getName());
 		globals.svy_mod_closeForm(event);
 

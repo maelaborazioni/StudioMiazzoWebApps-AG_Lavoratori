@@ -211,16 +211,34 @@ function dc_save(event,triggerForm)
 	    			elements.fld_datacessazione.editable = false;
     elements.btn_dataassunzione.enabled =
     	elements.btn_datacessazione.enabled = false;
-	 
+	
     // rielaborazione campo nominativo Ticket #14651	
     lavoratori_to_lavoratori_personeesterne.nominativo = lavoratori_to_lavoratori_personeesterne.cognome + " " + lavoratori_to_lavoratori_personeesterne.nome;	
-    	
+    
+    var idLav = idlavoratore;
+    var filtered = !globals.ma_utl_hasKey(globals.Key.AUT_GESTORE);
+    
+    // nel caso di filtri su anagrafiche/sedi/cdc/etc. è necessario rimuoverli
+    // per completare l'update dei dati
+    if(filtered)
+    {
+    	globals.ma_sec_removeDataFilters();
+    	globals.ma_sec_removeUsersFilters();
+    }
+    
     // control if save operation has correctly been done 	
 	if(_super.dc_save(event,triggerForm,false) == -1)
 		return;
 	
-	globals.rendiTimbratureRiassegnabili(idlavoratore,cessazione);
-	globals.pulisciGiornaliera(idlavoratore,cessazione);
+	if(filtered)
+		globals.ma_sec_setUsersFilters();	
+	
+	if(cessazione)
+		globals.rendiTimbratureRiassegnabili(idLav,cessazione);
+	
+	globals.pulisciGiornaliera(idLav,cessazione);
+	
+	globals.lookupFoundset(idLav,foundset);
 }
 /**
  * @param {JSEvent} [_event]

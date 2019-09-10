@@ -116,11 +116,16 @@ function dc_new(_event, _triggerForm)
  */
 function dc_delete(_event)
 {
-	var answer = globals.ma_utl_showYesNoQuestion('Procedere con l\'elimiazione del dipendente? Tutti i suoi dati non saranno più disponibili.','Eliminazione dipendente');
+	var answer = globals.ma_utl_showYesNoQuestion('Procedere con l\'eliminazione del dipendente? Tutti i suoi dati non saranno più disponibili.','Eliminazione dipendente');
 	if(!answer)
 		return;
 	
 	scopes.giornaliera.eliminazioneDipendente(idlavoratore);
+	
+	if(foundset && foundset.getSize())
+	   foundset.setSelectedIndex(1);
+	else
+	   globals.ma_utl_showInfoDialog('Nessun dipendente presente.')
 }
 
 /** *

@@ -330,6 +330,48 @@ var _codTurnista = null;
 var _email = '';
 
 /**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"9FF3C8E6-6B4D-4DDC-94BD-A0496A49F230"}
+ */
+var _cellulare = '';
+
+/**
+ * @type {String}
+ * 
+ * @properties={typeid:35,uuid:"E2916504-4B80-4113-8639-CAF9314294F9"}
+ */
+var _raggruppamento = null;
+
+/**
+ * @type {String}
+ * 
+ * @properties={typeid:35,uuid:"0DE93BB7-4D0E-47C7-91D8-B62F7ADD589C"}
+ */
+var _codRaggruppamento = null;
+
+/**
+ * @type {String}
+ * 
+ * @properties={typeid:35,uuid:"FF8CBB8F-B06C-468C-8E4F-EE9743ADCF20"}
+ */
+var _idDittaClassificazione = null;
+
+/**
+ * @type {String}
+ * 
+ * @properties={typeid:35,uuid:"C4CD9403-DA58-4AE1-BCFD-66C2A2B949B7"}
+ */
+var _codRaggruppamentoDett = null;
+
+/**
+ * @type {String}
+ * 
+ * @properties={typeid:35,uuid:"387BEAE8-C240-48B5-B1C2-19EA3793C6E7"}
+ */
+var _descRaggruppamentoDett = null;
+
+/**
  * @properties={typeid:24,uuid:"B8FCD71C-27F3-4A48-9168-F3578540CCAF"}
  */
 function settaCodiceDipendente()
@@ -353,10 +395,46 @@ function AggiornaSelezioneDitta(_rec)
 	_idDitta = _rec['idditta'];
 	_codiceDitta = _rec['codice'];
 	_ragioneSocialeDitta = _rec['ragionesociale'];
-		
+	
+    _idDittaSede = _codiceDittaSede = _descDittaSede = null;
+	
+	// aggiorna il codice dipendente al primo codice disponibile
 	settaCodiceDipendente();
 	
+	// aggiorna le classificazioni disponibili
+	AggiornaClassificazioni();	
+	
 	elements.fld_badge.visible = elements.fld_badge_dal.visible = (_idDitta != null && globals.haOrologio(_idDitta));
+}
+
+/**
+ * @properties={typeid:24,uuid:"EADF54A6-69C1-4673-AEB8-FC7057E87049"}
+ */
+function AggiornaClassificazioni()
+{
+	// aggiorna le classificazioni disponibili
+	var realValues = new Array();
+	var displayValues = new Array();
+	
+	var ds = globals.getClassificazioniDitta(_idDitta);
+	if(ds && ds.getMaxRowIndex())
+	{
+		for(var r = 1; r <= ds.getMaxRowIndex(); r++)
+		{
+			// iddittaclassificazione
+			realValues.push(ds.getValue(r,1) + ' ' + ds.getValue(r,2));
+			// codice + ' - ' + descrizione
+			displayValues.push(ds.getValue(r,2) + ' - ' + ds.getValue(r,3));
+		}
+	}		
+	application.setValueListItems('vls_raggruppamenti',displayValues,realValues);
+	
+//	elements.fld_raggruppamento.enabled =
+//		elements.fld_codiceraggruppamento.enabled =
+//			elements.fld_dettaglioraggruppamento.enabled =
+//				elements.btn_raggruppamento.enabled =
+//					 displayValues.length;
+//	 application.updateUI();
 }
 
 /**
@@ -648,7 +726,7 @@ function confermaNuovoDip(event)
 			{
 				var newRecapitoMail = newPersona.persone_to_persone_recapiti.getRecord(newPersona.persone_to_persone_recapiti.newRecord());
 				if(!newRecapitoMail)
-					throw new Error('Errore durante al creazione del recapito standard (email)');
+					throw new Error('Errore durante la creazione del recapito standard (email)');
 				
 				newRecapitoMail.codtiporecapito = 'M'; // indirizzo mail
 				newRecapitoMail.nprrecapito = 1;
@@ -657,6 +735,32 @@ function confermaNuovoDip(event)
 				newRecapitoMail.manuale = 1;
 			}
 			
+			// crea recapito telefono cellulare
+			if(_cellulare)
+			{
+				var newRecapitoCell = newPersona.persone_to_persone_recapiti.getRecord(newPersona.persone_to_persone_recapiti.newRecord());
+				if(!newRecapitoCell)
+					throw new Error('Errore durante la creazione del recapito standard (cellulare)');
+				
+				newRecapitoMail.codtiporecapito = 'C'; // cellulare
+				newRecapitoMail.nprrecapito = 1;
+				newRecapitoMail.datadecorrenza = null;
+				newRecapitoMail.valore = _cellulare;
+				newRecapitoMail.manuale = 1;
+			}
+			
+			// crea il dettaglio della classificazione principale
+			if(_codRaggruppamentoDett)
+			{
+				var newLavoratoreClass = newLavoratore.lavoratori_to_lavoratori_classificazioni.getRecord(newLavoratore.lavoratori_to_lavoratori_classificazioni.newRecord());
+				if(!newLavoratoreClass)
+					throw new Error('Errore durante la creazione della classificazione');
+				
+				newLavoratoreClass.idditta = newLavoratore.idditta;
+				newLavoratoreClass.codtipoclassificazione = _idDittaClassificazione;
+				newLavoratoreClass.codclassificazione = _codRaggruppamentoDett;
+			}
+				
 			 /**
     	     * Crea il lavoratore di job
     	     */
@@ -868,9 +972,13 @@ function onShowForm(_firstShow, _event) {
     plugins.busy.prepare();
     
     resetValues();
+    
     settaCodiceDipendente();
-        
-    elements.fld_badge.visible = elements.fld_badge_dal.visible = (_idDitta != null && globals.haOrologio(_idDitta));
+    AggiornaClassificazioni();
+    
+    var isInterinale = globals.isInterinale(_idDitta);
+    elements.fld_badge.visible = elements.fld_badge_dal.visible = (_idDitta != null && globals.haOrologio(isInterinale ? globals.getDittaRiferimento(_idDitta) : _idDitta));
+    
     globals.ma_utl_setStatus(globals.Status.EDIT,controller.getName());
 }
 
@@ -961,4 +1069,53 @@ function onDataChangeAssunzione(oldValue, newValue, event)
 	_regolaDal = newValue;
 	_badgeDal = newValue;
 	return true;
+}
+
+/**
+ * Handle changed data, return false if the value should not be accepted. In NGClient you can return also a (i18n) string, instead of false, which will be shown as a tooltip.
+ *
+ * @param {String} oldValue old value
+ * @param {String} newValue new value
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @return {Boolean}
+ *
+ * @private
+ *
+ * @properties={typeid:24,uuid:"4494ED59-1CF2-46C6-8330-7FC560093AA9"}
+ */
+function onDataChangeRaggruppamento(oldValue, newValue, event) 
+{
+	_codRaggruppamentoDett = null;
+	_descRaggruppamentoDett = '';
+	
+	var split = newValue.split(" ");
+    _codRaggruppamento = split[0];
+	_idDittaClassificazione = split[1];
+	
+	return true;
+}
+
+/**
+ * @param {JSFoundSet<db:/ma_anagrafiche/ditte_classificazioni>} fsClassifDett
+ *
+ * @properties={typeid:24,uuid:"AA4D109A-65B7-4ADE-860D-ECFDB97BC9E0"}
+ */
+function filterRaggruppamentoDettaglio(fsClassifDett)
+{
+	fsClassifDett.addFoundSetFilterParam('iddittaclassificazione'
+					                      ,'IN'
+										  ,_codRaggruppamento);
+	return fsClassifDett;
+}
+
+/**
+ * @param {JSRecord<db:/ma_anagrafiche/ditte_classificazionidettaglio>} rec
+ *
+ * @properties={typeid:24,uuid:"15B815F9-4DA5-4BCF-8C0D-552CF16D0333"}
+ */
+function updateRaggruppamentoDettaglio(rec)
+{
+	_codRaggruppamentoDett = rec.codice;
+	_descRaggruppamentoDett = rec.descrizione;
 }
