@@ -20,14 +20,23 @@ function updateData()
 {
 	var frm = forms.agl_cl_dettaglio_esterni_main;
 	var fs = frm.foundset;
+	var frmTbl = forms.agl_cl_dettaglio_esterni_tbl;
+	var fsTbl = frmTbl.foundset;
 	
 	if(foundset && foundset.getSize() && fs.find())
 	{
-		fs['idlavoratore'] = forms.agl_header_esterni_dtl.idlavoratore;
-		fs['codtipoclassificazione'] = foundset.getSelectedRecord().codice;
-		fs.search();
-		fs.sort('codice asc');
+		fs.codtipoclassificazione = foundset.codice;
+		if(fs.search())
+		{
+			fsTbl.find();
+			fsTbl.iddittaclassificazione = foundset.iddittaclassificazione;
+			fsTbl.codice = fs.codclassificazione;
+			fsTbl.search();
+			fsTbl.sort('codice asc');
+		}
+		else
+			fsTbl.clear();
 	}
 	else
-		fs.clear();
+		fsTbl.clear();
 }

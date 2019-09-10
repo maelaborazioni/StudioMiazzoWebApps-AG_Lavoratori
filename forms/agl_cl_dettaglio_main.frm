@@ -14,7 +14,6 @@ items:[
 {
 containsFormID:"36739B4A-1FC6-43ED-8F5A-F6A2CB745910",
 location:"345,53",
-relationName:"lavoratori_classificazioni_to_lavoratori_classificazioni",
 text:"agl_cl_dettaglio_tbl",
 typeid:15,
 uuid:"106E9FF1-A15A-4CF8-A822-B2D28CA85CB8"

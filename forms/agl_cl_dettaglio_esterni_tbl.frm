@@ -1,9 +1,9 @@
 customProperties:"formComponent:false",
-dataSource:"db:/ma_anagrafiche/lavoratori_classificazioni",
+dataSource:"db:/ma_anagrafiche/ditte_classificazionidettaglio",
 extendsID:"36739B4A-1FC6-43ED-8F5A-F6A2CB745910",
 items:[
 {
-dataProviderID:"lavoratori_classificazioni_esterni_to_ditte_classificazionidettaglio.descrizione",
+dataProviderID:"descrizione",
 extendsID:"857E9CF9-8C63-4907-B831-9F30D7F05D77",
 typeid:4,
 uuid:"182FD281-674E-41D5-868D-D7D6084A8F68"

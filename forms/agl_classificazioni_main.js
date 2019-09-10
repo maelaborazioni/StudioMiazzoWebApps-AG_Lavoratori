@@ -35,7 +35,9 @@ function onRecordSelection(event, form)
 {
 	_super.onRecordSelection(event, form);
 	if(_isDittaEsterna)
-       forms.agl_cl_classificazioni_esterni_tbl.updateData();		
+        forms.agl_cl_classificazioni_esterni_tbl.updateData();
+	else
+		forms.agl_cl_classificazioni_tbl.updateData();
 }
 
 /**
@@ -85,17 +87,6 @@ function dc_new(_event, _triggerForm, _forceForm)
 	
 	_idDitta = foundset.idditta;
 	AggiornaClassificazioni(fs.getSelectedRecord());
-	
-//	var params = {
-//		event : _event,
-//		returnForm : controller.getName(),
-//		lookup : 'AG_Lkp_Classificazioni',
-//		allowInBrowse : true,
-//		methodToExecuteAfterSelection : 'AggiornaClassificazioni',
-//		methodToAddFoundsetFilter : 'FiltraClassificazioni'
-//	}
-//	
-//	globals.ma_utl_showLkpWindow(params);
 }
 
 /**
@@ -118,18 +109,24 @@ function dc_delete(_event, _triggerForm, _forceForm, _noConfirm)
     	return false;
     }
     
-    var frmParent = _isDittaEsterna ? forms.agl_cl_classificazioni_esterni_tbl : forms.agl_cl_classificazioni_tbl;
+    var frmParent = _isDittaEsterna ? forms.agl_cl_dettaglio_esterni_main : forms.agl_cl_dettaglio_main;
     var fsParent = frmParent.foundset;
-    if(fsParent && fsParent.codice && parseInt(fsParent.codice,10) <= 10 && !_isDittaEsterna)
+    if(fsParent 
+  	   && fsParent.lavoratori_classificazioni_to_ditte_classificazioni		
+       && fsParent.lavoratori_classificazioni_to_ditte_classificazioni.codice 
+	   && parseInt(fsParent.lavoratori_classificazioni_to_ditte_classificazioni.codice,10) <= 10
+	   && !_isDittaEsterna)
 	{
 		globals.ma_utl_showWarningDialog('Per la gestione delle classificazioni aventi codice tra 1 e 10, rivolgersi al servizio di assistenza dello Studio','Elimina classificazione lavoratore');
 		return false;
 	}
-    
-    if(fs.deleteRecord(fs.getSelectedRecord()))
+    	
+    if(fsParent.deleteRecord(fsParent.getSelectedRecord()))
     {
     	if(_isDittaEsterna)
-    	   databaseManager.refreshRecordFromDatabase(frm.foundset,-1);		
+            forms.agl_cl_classificazioni_esterni_tbl.updateData();
+    	else
+    		forms.agl_cl_classificazioni_tbl.updateData();
         return true;
     }
     
@@ -186,7 +183,11 @@ function AggiornaClassificazioniDettaglio(_rec)
 		return;
     }
     
-    _isDittaEsterna ? databaseManager.refreshRecordFromDatabase(forms.agl_cl_dettaglio_esterni_tbl.foundset,-1) : databaseManager.refreshRecordFromDatabase(lavoratori_to_lavoratori_classificazioni,-1);
+    if(_isDittaEsterna)
+        forms.agl_cl_classificazioni_esterni_tbl.updateData();
+	else
+		forms.agl_cl_classificazioni_tbl.updateData();
+    //_isDittaEsterna ? databaseManager.refreshRecordFromDatabase(forms.agl_cl_dettaglio_esterni_main.foundset,-1) : databaseManager.refreshRecordFromDatabase(lavoratori_to_lavoratori_classificazioni,-1);
 }
 
 /**

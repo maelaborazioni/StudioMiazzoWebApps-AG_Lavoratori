@@ -8,7 +8,7 @@ items:[
 {
 containsFormID:"A03472C8-51E1-4818-A00C-38E5EA2DC988",
 extendsID:"FC7E9FE8-9180-4C8B-B58B-E9E1D1A82C83",
-relationName:null,
+relationName:"lavoratori_to_lavoratori_classificazioni",
 text:"agl_cl_dettaglio_esterni_main",
 typeid:15,
 uuid:"CF900F54-7BB9-4CCF-8FC1-286293FF173F"

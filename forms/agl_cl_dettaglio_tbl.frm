@@ -1,7 +1,7 @@
-dataSource:"db:/ma_anagrafiche/lavoratori_classificazioni",
+dataSource:"db:/ma_anagrafiche/ditte_classificazionidettaglio",
 items:[
 {
-dataProviderID:"codclassificazione",
+dataProviderID:"codice",
 editable:false,
 format:"#####",
 location:"0,20",
@@ -34,7 +34,7 @@ visible:false
 },
 {
 anchors:11,
-dataProviderID:"lavoratori_classificazioni_to_ditte_classificazionidettaglio.descrizione",
+dataProviderID:"descrizione",
 editable:false,
 location:"60,20",
 name:"fld_descrizione",
